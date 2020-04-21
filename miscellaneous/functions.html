@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -46,6 +43,7 @@
 
 
 
+                   
 
 <ol class="breadcrumb">
   <li>Miscellaneous</li>
@@ -60,22 +58,22 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#canEnableToolbarOptions" title="src/app/ngx-editor/common/utils/ngx-editor.utils.ts"><b>canEnableToolbarOptions</b>&nbsp;&nbsp;&nbsp;(src/.../ngx-editor.utils.ts)</a>
+                            <a href="#getHistoryKeyMap" title="src/app/ngx-editor/utils/plugins.ts"><b>getHistoryKeyMap</b>&nbsp;&nbsp;&nbsp;(src/.../plugins.ts)</a>
                         </li>
                         <li>
-                            <a href="#canResize" title="src/app/ngx-editor/common/utils/ngx-editor.utils.ts"><b>canResize</b>&nbsp;&nbsp;&nbsp;(src/.../ngx-editor.utils.ts)</a>
+                            <a href="#getIconSvg" title="src/app/ngx-editor/utils/icons/index.ts"><b>getIconSvg</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
-                            <a href="#getEditorConfiguration" title="src/app/ngx-editor/common/utils/ngx-editor.utils.ts"><b>getEditorConfiguration</b>&nbsp;&nbsp;&nbsp;(src/.../ngx-editor.utils.ts)</a>
+                            <a href="#getMenuDom" title="src/app/ngx-editor/plugins/menu/getMenu.ts"><b>getMenuDom</b>&nbsp;&nbsp;&nbsp;(src/.../getMenu.ts)</a>
                         </li>
                         <li>
-                            <a href="#MaxLengthValidator" title="src/app/ngx-editor/validators/maxlength-validator.ts"><b>MaxLengthValidator</b>&nbsp;&nbsp;&nbsp;(src/.../maxlength-validator.ts)</a>
+                            <a href="#getSeperatorDom" title="src/app/ngx-editor/plugins/menu/getMenu.ts"><b>getSeperatorDom</b>&nbsp;&nbsp;&nbsp;(src/.../getMenu.ts)</a>
                         </li>
                         <li>
-                            <a href="#restoreSelection" title="src/app/ngx-editor/common/utils/ngx-editor.utils.ts"><b>restoreSelection</b>&nbsp;&nbsp;&nbsp;(src/.../ngx-editor.utils.ts)</a>
+                            <a href="#menuPlugin" title="src/app/ngx-editor/plugins/menu/menu.ts"><b>menuPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
                         </li>
                         <li>
-                            <a href="#saveSelection" title="src/app/ngx-editor/common/utils/ngx-editor.utils.ts"><b>saveSelection</b>&nbsp;&nbsp;&nbsp;(src/.../ngx-editor.utils.ts)</a>
+                            <a href="#placeholderPlugin" title="src/app/ngx-editor/plugins/placeholder.ts"><b>placeholderPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../placeholder.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -84,401 +82,300 @@
     </table>
 </section>
 
-    <h3>src/app/ngx-editor/common/utils/ngx-editor.utils.ts</h3>
+    <h3>src/app/ngx-editor/utils/plugins.ts</h3>
     <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="canEnableToolbarOptions"></a>
-                        <span class="name">
-                            <b>
-                            canEnableToolbarOptions
-                            </b>
-                            <a href="#canEnableToolbarOptions"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>canEnableToolbarOptions(value: undefined, toolbar: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
-                    </td>
-                </tr>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getHistoryKeyMap"></a>
+                    <span class="name">
+                        <b>
+                            getHistoryKeyMap
+                        </b>
+                        <a href="#getHistoryKeyMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getHistoryKeyMap()</code>
+                </td>
+            </tr>
 
 
 
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>enable or disable toolbar based on configuration</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>value</td>
-                                                        <td>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                        <td>
-                                                                <code><p>toolbar item</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>toolbar</td>
-                                                        <td>
-                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                        <td>
-                                                                <code><p>toolbar configuration object</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="canResize"></a>
-                        <span class="name">
-                            <b>
-                            canResize
-                            </b>
-                            <a href="#canResize"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>canResize(resizer: undefined)</code>
-                    </td>
-                </tr>
-
-
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>return vertical if the element is the resizer property is set to basic</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>resizer</td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                        <td>
-                                                                <code><p>type of resizer, either basic or stack</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="getEditorConfiguration"></a>
-                        <span class="name">
-                            <b>
-                            getEditorConfiguration
-                            </b>
-                            <a href="#getEditorConfiguration"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>getEditorConfiguration(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, ngxEditorConfig: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, input: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
-                    </td>
-                </tr>
-
-
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>set editor configuration</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>value</td>
-                                                        <td>
-                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                        <td>
-                                                                <code><p>configuration via [config] property</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>ngxEditorConfig</td>
-                                                        <td>
-                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                        <td>
-                                                                <code><p>default editor configuration</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>input</td>
-                                                        <td>
-                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                        <td>
-                                                                <code><p>direct configuration inputs via directives</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="restoreSelection"></a>
-                        <span class="name">
-                            <b>
-                            restoreSelection
-                            </b>
-                            <a href="#restoreSelection"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>restoreSelection(range: )</code>
-                    </td>
-                </tr>
-
-
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>restore selection when the editor is focussed in</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>range</td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                        <td>
-                                                                <code><p>saved selection when the editor is focussed out</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="saveSelection"></a>
-                        <span class="name">
-                            <b>
-                            saveSelection
-                            </b>
-                            <a href="#saveSelection"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>saveSelection()</code>
-                    </td>
-                </tr>
-
-
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>save selection when the editor is focussed out</p>
-</div>
-
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-    <h3>src/app/ngx-editor/validators/maxlength-validator.ts</h3>
+        </tbody>
+    </table>
+</section>    <h3>src/app/ngx-editor/utils/icons/index.ts</h3>
     <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="MaxLengthValidator"></a>
-                        <span class="name">
-                            <b>
-                            MaxLengthValidator
-                            </b>
-                            <a href="#MaxLengthValidator"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>MaxLengthValidator(maxlength: undefined, options?: undefined)</code>
-                    </td>
-                </tr>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIconSvg"></a>
+                    <span class="name">
+                        <b>
+                            getIconSvg
+                        </b>
+                        <a href="#getIconSvg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getIconSvg(name)</code>
+                </td>
+            </tr>
 
 
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>maxlength</td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
 
-                                                </tr>
-                                                <tr>
-                                                        <td>options</td>
-                                                    
-                                                    <td>
-                                                            Yes
-                                                    </td>
-                                                    
+                                    <td>
+                                        No
+                                    </td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/ngx-editor/plugins/menu/getMenu.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMenuDom"></a>
+                    <span class="name">
+                        <b>
+                            getMenuDom
+                        </b>
+                        <a href="#getMenuDom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMenuDom(name)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>HTMLElement</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSeperatorDom"></a>
+                    <span class="name">
+                        <b>
+                            getSeperatorDom
+                        </b>
+                        <a href="#getSeperatorDom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSeperatorDom()</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>HTMLElement</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/ngx-editor/plugins/menu/menu.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuPlugin"></a>
+                    <span class="name">
+                        <b>
+                            menuPlugin
+                        </b>
+                        <a href="#menuPlugin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>menuPlugin(toolbar)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>toolbar</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Plugin</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/ngx-editor/plugins/placeholder.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="placeholderPlugin"></a>
+                    <span class="name">
+                        <b>
+                            placeholderPlugin
+                        </b>
+                        <a href="#placeholderPlugin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>placeholderPlugin(text)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 
 
                    </div><div class="search-results">
@@ -499,11 +396,14 @@
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-functions';
             var COMPODOC_CURRENT_PAGE_URL = 'functions.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

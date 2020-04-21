@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -46,6 +43,7 @@
 
 
 
+                   
 
 <ol class="breadcrumb">
   <li>Miscellaneous</li>
@@ -60,7 +58,13 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#DURATION" title="src/app/ngx-editor/common/services/message.service.ts"><b>DURATION</b>&nbsp;&nbsp;&nbsp;(src/.../message.service.ts)</a>
+                            <a href="#computeOptions" title="src/app/ngx-editor/utils/computeOptions.ts"><b>computeOptions</b>&nbsp;&nbsp;&nbsp;(src/.../computeOptions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultConfig" title="src/app/ngx-editor/utils/computeOptions.ts"><b>defaultConfig</b>&nbsp;&nbsp;&nbsp;(src/.../computeOptions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultToolbarOptions" title="src/app/ngx-editor/utils/computeOptions.ts"><b>defaultToolbarOptions</b>&nbsp;&nbsp;&nbsp;(src/.../computeOptions.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
@@ -69,7 +73,40 @@
                             <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
-                            <a href="#ngxEditorConfig" title="src/app/ngx-editor/common/ngx-editor.defaults.ts"><b>ngxEditorConfig</b>&nbsp;&nbsp;&nbsp;(src/.../ngx-editor.defaults.ts)</a>
+                            <a href="#getMenu" title="src/app/ngx-editor/plugins/menu/getMenu.ts"><b>getMenu</b>&nbsp;&nbsp;&nbsp;(src/.../getMenu.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getPlugins" title="src/app/ngx-editor/utils/plugins.ts"><b>getPlugins</b>&nbsp;&nbsp;&nbsp;(src/.../plugins.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getToolbar" title="src/app/ngx-editor/utils/computeOptions.ts"><b>getToolbar</b>&nbsp;&nbsp;&nbsp;(src/.../computeOptions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#height" title="src/app/ngx-editor/utils/icons/index.ts"><b>height</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#icons" title="src/app/ngx-editor/utils/icons/index.ts"><b>icons</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isMacOs" title="src/app/ngx-editor/utils/plugins.ts"><b>isMacOs</b>&nbsp;&nbsp;&nbsp;(src/.../plugins.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#menu" title="src/app/ngx-editor/plugins/menu/menu.ts"><b>menu</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MENU_ITEM_CLASSNAME" title="src/app/ngx-editor/plugins/menu/constants.ts"><b>MENU_ITEM_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MENU_WRAPPER_CLASSNAME" title="src/app/ngx-editor/plugins/menu/constants.ts"><b>MENU_WRAPPER_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#menuItems" title="src/app/ngx-editor/plugins/menu/getMenu.ts"><b>menuItems</b>&nbsp;&nbsp;&nbsp;(src/.../getMenu.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#seperator" title="src/app/ngx-editor/plugins/menu/getMenu.ts"><b>seperator</b>&nbsp;&nbsp;&nbsp;(src/.../getMenu.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#width" title="src/app/ngx-editor/utils/icons/index.ts"><b>width</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -78,45 +115,130 @@
     </table>
 </section>
 
-    <h3>src/app/ngx-editor/common/services/message.service.ts</h3>
+    <h3>src/app/ngx-editor/utils/computeOptions.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="DURATION"></a>
+                        <a name="computeOptions"></a>
                         <span class="name">
                             <b>
-                            DURATION
-                            </b>
-                            <a href="#DURATION"><span class="icon ion-ios-link"></span></a>
+                            computeOptions</b>
+                            <a href="#computeOptions"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(options: Options): ComputedOptions &#x3D;&gt; {
+  const computedOptions &#x3D; {} as ComputedOptions;
+
+  const config &#x3D; Object.assign({}, options.config, defaultConfig);
+
+  computedOptions.toolbar &#x3D; getToolbar(config);
+
+  if (options.placeholder) {
+    computedOptions.placeholder &#x3D; options.placeholder;
+  }
+
+  return computedOptions;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <code>DURATION:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-</code>
+                        <a name="defaultConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultConfig</b>
+                            <a href="#defaultConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/Config.html" target="_self" >Config</a></code>
 
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>7000</code>
+                            <i>Default value : </i><code>{
+  toolbar: true
+}</code>
                         </td>
                     </tr>
 
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>time in which the message has to be cleared </p>
-</div>
+                        <a name="defaultToolbarOptions"></a>
+                        <span class="name">
+                            <b>
+                            defaultToolbarOptions</b>
+                            <a href="#defaultToolbarOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Toolbar" target="_self" >Toolbar</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  [&#x27;bold&#x27;, &#x27;italic&#x27;, &#x27;code&#x27;],
+]</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getToolbar"></a>
+                        <span class="name">
+                            <b>
+                            getToolbar</b>
+                            <a href="#getToolbar"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(config: Config): Toolbar &#x3D;&gt; {
+  let toolbar &#x3D; null;
+
+  // set toolbar options
+  if (typeof config.toolbar &#x3D;&#x3D;&#x3D; &#x27;boolean&#x27;) {
+    if (config.toolbar) {
+      toolbar &#x3D; defaultToolbarOptions;
+    }
+  } else {
+    toolbar &#x3D; config.toolbar;
+  }
+
+  return toolbar;
+}</code>
+                        </td>
+                    </tr>
+
 
             </tbody>
         </table>
@@ -130,21 +252,14 @@
                         <a name="environment"></a>
                         <span class="name">
                             <b>
-                            environment
-                            </b>
+                            environment</b>
                             <a href="#environment"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>environment:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
 
                         </td>
                     </tr>
@@ -175,21 +290,14 @@
                         <a name="environment"></a>
                         <span class="name">
                             <b>
-                            environment
-                            </b>
+                            environment</b>
                             <a href="#environment"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>environment:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
 
                         </td>
                     </tr>
@@ -201,78 +309,345 @@
                         </td>
                     </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The file contents for the current environment will overwrite these during build.
-The build system defaults to the dev environment which uses <code>environment.ts</code>, but if you do
-<code>ng build --env=prod</code> then <code>environment.prod.ts</code> will be used instead.
-The list of which env maps to which file can be found in <code>.angular-cli.json</code>.</p>
-</div>
-                    </td>
-                </tr>
 
             </tbody>
         </table>
 </section>
-    <h3>src/app/ngx-editor/common/ngx-editor.defaults.ts</h3>
+    <h3>src/app/ngx-editor/plugins/menu/getMenu.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ngxEditorConfig"></a>
+                        <a name="getMenu"></a>
                         <span class="name">
                             <b>
-                            ngxEditorConfig
-                            </b>
-                            <a href="#ngxEditorConfig"><span class="icon ion-ios-link"></span></a>
+                            getMenu</b>
+                            <a href="#getMenu"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>ngxEditorConfig:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Default value : </i><code>(toolbar: Toolbar): MenuItem[] &#x3D;&gt; {
+  const menu &#x3D; [];
+
+  toolbar.forEach((group, toolbarIndex) &#x3D;&gt; {
+    const isLastMenuGroup &#x3D; toolbar.length - 1 &#x3D;&#x3D;&#x3D; toolbarIndex;
+
+    group.forEach((menuName, menuIndex) &#x3D;&gt; {
+      const isLastMenuItem &#x3D; group.length - 1 &#x3D;&#x3D;&#x3D; menuIndex;
+
+      const menuItem &#x3D; menuItems[menuName];
+      if (menuItem) {
+        menu.push(menuItem);
+
+        if (isLastMenuItem &amp;&amp; !isLastMenuGroup) {
+          menu.push(seperator);
+        }
+      }
+    });
+  });
+
+  return menu;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="menuItems"></a>
+                        <span class="name">
+                            <b>
+                            menuItems</b>
+                            <a href="#menuItems"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>literal type</code>
 
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  editable: true,
-  spellcheck: true,
-  height: &#x27;auto&#x27;,
-  minHeight: &#x27;0&#x27;,
-  width: &#x27;auto&#x27;,
-  minWidth: &#x27;0&#x27;,
-  translate: &#x27;yes&#x27;,
-  enableToolbar: true,
-  showToolbar: true,
-  placeholder: &#x27;Enter text here...&#x27;,
-  imageEndPoint: &#x27;&#x27;,
-  toolbar: [
-    [&#x27;bold&#x27;, &#x27;italic&#x27;, &#x27;underline&#x27;, &#x27;strikeThrough&#x27;, &#x27;superscript&#x27;, &#x27;subscript&#x27;],
-    [&#x27;fontName&#x27;, &#x27;fontSize&#x27;, &#x27;color&#x27;],
-    [&#x27;justifyLeft&#x27;, &#x27;justifyCenter&#x27;, &#x27;justifyRight&#x27;, &#x27;justifyFull&#x27;, &#x27;indent&#x27;, &#x27;outdent&#x27;],
-    [&#x27;cut&#x27;, &#x27;copy&#x27;, &#x27;delete&#x27;, &#x27;removeFormat&#x27;, &#x27;undo&#x27;, &#x27;redo&#x27;],
-    [&#x27;paragraph&#x27;, &#x27;blockquote&#x27;, &#x27;removeBlockquote&#x27;, &#x27;horizontalLine&#x27;, &#x27;orderedList&#x27;, &#x27;unorderedList&#x27;],
-    [&#x27;link&#x27;, &#x27;unlink&#x27;, &#x27;image&#x27;, &#x27;video&#x27;]
-  ]
+  bold: { key: &#x27;strong&#x27;, command: toggleMark(schema.marks.strong), dom: getMenuDom(&#x27;bold&#x27;) },
+  italic: { key: &#x27;em&#x27;, command: toggleMark(schema.marks.em), dom: getMenuDom(&#x27;italic&#x27;) },
+  code: { key: &#x27;code&#x27;, command: toggleMark(schema.marks.code), dom: getMenuDom(&#x27;code&#x27;) }
 }</code>
                         </td>
                     </tr>
 
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>toolbar default configuration</p>
-</div>
+                        <a name="seperator"></a>
+                        <span class="name">
+                            <b>
+                            seperator</b>
+                            <a href="#seperator"><span class="icon ion-ios-link"></span></a>
+                        </span>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/MenuItem.html" target="_self" >MenuItem</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{ key: &#x27;seperator&#x27;, dom: getSeperatorDom() }</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/ngx-editor/utils/plugins.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getPlugins"></a>
+                        <span class="name">
+                            <b>
+                            getPlugins</b>
+                            <a href="#getPlugins"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(options: ComputedOptions): Plugin[] &#x3D;&gt; {
+  const historyKeyMap &#x3D; getHistoryKeyMap();
+
+  const plugins &#x3D; [
+    history(),
+    keymap(baseKeymap),
+    keymap(historyKeyMap),
+    keymap({
+      &#x27;Mod-b&#x27;: toggleMark(schema.marks.strong),
+      &#x27;Mod-i&#x27;: toggleMark(schema.marks.em),
+      &#x27;Mod-&#x60;&#x27;: toggleMark(schema.marks.code)
+    }),
+    placeholder(options.placeholder),
+  ];
+
+  if (options.toolbar) {
+    plugins.push(menu(options.toolbar));
+  }
+
+  return plugins;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isMacOs"></a>
+                        <span class="name">
+                            <b>
+                            isMacOs</b>
+                            <a href="#isMacOs"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>/Mac/.test(navigator.platform)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/ngx-editor/utils/icons/index.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="height"></a>
+                        <span class="name">
+                            <b>
+                            height</b>
+                            <a href="#height"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>20</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="icons"></a>
+                        <span class="name">
+                            <b>
+                            icons</b>
+                            <a href="#icons"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  bold,
+  italic,
+  code
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="width"></a>
+                        <span class="name">
+                            <b>
+                            width</b>
+                            <a href="#width"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>20</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/ngx-editor/plugins/menu/menu.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="menu"></a>
+                        <span class="name">
+                            <b>
+                            menu</b>
+                            <a href="#menu"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(toolbarOptions: Toolbar) &#x3D;&gt; {
+  return menuPlugin(toolbarOptions);
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/ngx-editor/plugins/menu/constants.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="MENU_ITEM_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            MENU_ITEM_CLASSNAME</b>
+                            <a href="#MENU_ITEM_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;NgxEditor-MenuItem&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="MENU_WRAPPER_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            MENU_WRAPPER_CLASSNAME</b>
+                            <a href="#MENU_WRAPPER_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;NgxEditor-MenuBar&#x27;</code>
+                        </td>
+                    </tr>
+
 
             </tbody>
         </table>
@@ -298,11 +673,14 @@ The list of which env maps to which file can be found in <code>.angular-cli.json
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
             var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
