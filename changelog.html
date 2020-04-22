@@ -1,0 +1,520 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>NgxEditor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">NgxEditor</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="changelog">CHANGELOG</h1>
+<p>All notable changes to this project will be documented in this file.</p>
+<blockquote>
+<p><strong>Tags</strong></p>
+<ul>
+<li>Features</li>
+<li>Bug Fixes</li>
+<li>Performance Improvements</li>
+<li>Dependency Updates</li>
+<li>Breaking Changes</li>
+<li>Documentation</li>
+<li>Internal</li>
+</ul>
+</blockquote>
+<h2 id="v410-2018-10-21">v4.1.0 (2018-10-21)</h2>
+<h4 id="dependency-updates">Dependency Updates</h4>
+<ul>
+<li>update husky to v1.1.2</li>
+</ul>
+<h4 id="internal">Internal</h4>
+<ul>
+<li>code cleanup</li>
+</ul>
+<h2 id="v410-beta0-2018-10-12">v4.1.0-beta.0 (2018-10-12)</h2>
+<h4 id="features">Features</h4>
+<ul>
+<li>new MaxLengthvalidator for validation in reactive forms</li>
+</ul>
+<h4 id="dependency-updates-1">Dependency Updates</h4>
+<ul>
+<li>update ng-packagr to v4.3.0</li>
+</ul>
+<h2 id="v400-2018-10-04">v4.0.0 (2018-10-04)</h2>
+<p>🎉 Support Angular 6.</p>
+<h4 id="dependency-changes">Dependency Changes</h4>
+<ul>
+<li>update angular to v6 and its dependencies</li>
+<li>update compodoc</li>
+<li>update ng-packagr</li>
+<li>remove commitizen, cz-conventional-changelog</li>
+</ul>
+<h4 id="internal-1">Internal</h4>
+<ul>
+<li>add prePublishOnly script to prevent accidental publishes</li>
+</ul>
+<h4 id="documentation">Documentation</h4>
+<ul>
+<li>recompile docs with compodoc v1.1.5</li>
+</ul>
+<h2 id="v330-2018-05-04">v3.3.0 (2018-05-04)</h2>
+<p>No new changes were introduced.</p>
+<p>Follow releases from <code>v3.3.0-rc0</code> to <code>v3.3.0-rc.14</code> for release notes 🍻</p>
+<h2 id="v330-rc14-2018-05-02">v3.3.0-rc.14 (2018-05-02)</h2>
+<h4 id="documentation-1">Documentation</h4>
+<ul>
+<li>update unclear prerequisites in README (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/1c316cb">1c316cb</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/92">#92</a></li>
+</ul>
+<h4 id="enhancements">Enhancements</h4>
+<ul>
+<li>update ngx-bootstrap (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/eed8aaa">eed8aaa</a>)</li>
+</ul>
+<h4 id="internal-2">Internal</h4>
+<ul>
+<li>update compodoc (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/47f34ad">47f34ad</a>)</li>
+<li>update bootstrap (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/ee1555b">ee1555b</a>)</li>
+<li>update ng-packagr (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/b174a14">b174a14</a>)</li>
+</ul>
+<h4 id="breaking-changes">Breaking Changes</h4>
+<ul>
+<li>remove code-editor support (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/24b92e0">24b92e0</a>)</li>
+</ul>
+<h2 id="v330-rc13-2018-03-14">v3.3.0-rc.13 (2018-03-14)</h2>
+<h4 id="features-1">Features</h4>
+<ul>
+<li>auto-focus while switching to code-editor mode (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/1ed938e">1ed938e</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/79">#79</a></li>
+<li>show placeholder in code editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/bae2216">bae2216</a>)</li>
+<li>option to insert video link/ youtube urls (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/e074c7a">e074c7a</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/72">#72</a></li>
+<li>option to set font family (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/1248db7">1248db7</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/72">#72</a></li>
+</ul>
+<h4 id="internal-3">Internal</h4>
+<ul>
+<li>remove dead code which used to enable or disable toolbar (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/00adda2">00adda2</a>)</li>
+</ul>
+<h4 id="dependency-update">DEPENDENCY UPDATE</h4>
+<ul>
+<li>update dependencies in package-lock file to latest satisfying version (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/f62d945">f62d945</a>)</li>
+</ul>
+<h2 id="v330-rc12-2018-03-11">v3.3.0-rc.12 (2018-03-11)</h2>
+<h4 id="features-2">Features</h4>
+<ul>
+<li>support TAB key to focus the editor&#39;s text-area (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/8e3e65b">8e3e65b</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/79">#79</a></li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li>don&#39;t return from writeValue (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/36133e1">36133e1</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/78">#78</a></li>
+</ul>
+<h4 id="performance">Performance</h4>
+<ul>
+<li>remove unused imports/variables (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/182152a">182152a</a>)</li>
+</ul>
+<h4 id="dependency-updates-2">DEPENDENCY UPDATES</h4>
+<ul>
+<li>update angular-cli to v1.7.3 (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/0f94d1e">0f94d1e</a>)</li>
+<li>update compodoc to v1.0.9 (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/a9262c2">a9262c2</a>)</li>
+</ul>
+<h2 id="v330-rc11-2018-03-06">v3.3.0-rc.11 (2018-03-06)</h2>
+<h4 id="bug-fixes-1">Bug Fixes</h4>
+<ul>
+<li>use codemirror&#39;s <code>htmlMixed</code> mode instead of <code>xml</code> mode (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/fbf9d1d">fbf9d1d</a>)</li>
+</ul>
+<h4 id="internal-4">Internal</h4>
+<ul>
+<li>remove redundant karma-cli (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/df192b">df192b</a>)</li>
+</ul>
+<h4 id="dependency-updates-3">DEPENDENCY UPDATES</h4>
+<ul>
+<li>update angular-cli to v1.7.2 (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/87bb04e">87bb04e</a>)</li>
+<li>update compodoc to v1.0.8 (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/47d5ba4">47d5ba4</a>)</li>
+<li>update ng-packagr to v2.2.0 (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/ba86da6">ba86da6</a>)</li>
+</ul>
+<h2 id="v330-rc10-2018-02-27">v3.3.0-rc.10 (2018-02-27)</h2>
+<h4 id="bug-fixes-2">Bug Fixes</h4>
+<ul>
+<li>don&#39;t override default styles (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/5beee77">5beee77</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/68">#68</a></li>
+</ul>
+<h2 id="v330-rc9-2018-02-26">v3.3.0-rc.9 (2018-02-26)</h2>
+<h4 id="features-3">Features</h4>
+<ul>
+<li><strong>style</strong> - highlight active tabs in popover (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/0b7dd99">0b7dd99</a>)</li>
+<li>option to set <code>font color</code> and <code>background color</code> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/a983fd4">a983fd4</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/65">#65</a></li>
+<li>option to set <code>font-size</code> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/f49e477">f49e477</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/31">#31</a></li>
+</ul>
+<h4 id="bug-fixes-3">Bug Fixes</h4>
+<ul>
+<li><strong>style</strong> - center align popover arrow (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2a13ca0">2a13ca0</a>)</li>
+</ul>
+<h4 id="internal-5">Internal</h4>
+<ul>
+<li>udpate devDependencies (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/4fddfac">4fddfac</a>)</li>
+</ul>
+<h2 id="v330-rc8-2018-02-22">v3.3.0-rc.8 (2018-02-22)</h2>
+<h4 id="bug-fixes-4">Bug Fixes</h4>
+<ul>
+<li>fix: links inserted twice (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/97398ee">97398ee</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/61">#61</a></li>
+</ul>
+<h2 id="v330-rc7-2018-02-21">v3.3.0-rc.7 (2018-02-21)</h2>
+<h4 id="enhancements-1">Enhancements</h4>
+<ul>
+<li>remove bootstrap from <code>peerDependency</code> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/8aa0ffd">8aa0ffd</a>)</li>
+</ul>
+<h2 id="v330-rc6-2018-02-20">v3.3.0-rc.6 (2018-02-20)</h2>
+<h4 id="bug-fixes-5">Bug Fixes</h4>
+<ul>
+<li>fix a typo in toolbar (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/367474f">367474f</a>)</li>
+</ul>
+<h4 id="enhancements-2">Enhancements</h4>
+<ul>
+<li>added new peer dependencies (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/683bbee">683bbee</a>)</li>
+<li>updated docs (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/57e4056">57e4056</a>)</li>
+</ul>
+<h2 id="v330-rc5-2018-02-19">v3.3.0-rc.5 (2018-02-19)</h2>
+<h4 id="features-4">Features</h4>
+<ul>
+<li>option to open URL in new tab (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/d4001c4">d4001c4</a>)</li>
+<li>option to upload images from local filesystem (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/09b69b5">09b69b5</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/34">#34</a></li>
+</ul>
+<h4 id="internal-6">Internal</h4>
+<ul>
+<li>documentation compiled with compodoc v1.0.7</li>
+</ul>
+<h2 id="v330-rc4-2018-02-08">v3.3.0-rc.4 (2018-02-08)</h2>
+<h4 id="internal-7">Internal</h4>
+<ul>
+<li>update ng-packager to v2.0.0</li>
+</ul>
+<h2 id="v330-rc3-2018-02-05">v3.3.0-rc.3 (2018-02-05)</h2>
+<h4 id="bug-fixes-6">Bug Fixes</h4>
+<ul>
+<li>remove border for toolbar if hidden (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/4eef077">4eef077</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/43">#43</a></li>
+<li>placeholder gets duplicated if a page has more than one editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/cdfd4bc">cdfd4bc</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/44">#44</a></li>
+<li>ngModel binding does not reflects in editor&#39;s textarea (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/4f4967a">4f4967a</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/45">#45</a></li>
+</ul>
+<h4 id="changes">Changes</h4>
+<ul>
+<li>update peerDependency codemirror to v5.34.0 (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/6012283">6012283</a>)</li>
+</ul>
+<h4 id="internal-8">Internal</h4>
+<ul>
+<li>update devDependencies (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/6012283">6012283</a>)</li>
+</ul>
+<h2 id="v330-rc2-2018-01-19">v3.3.0-rc.2 (2018-01-19)</h2>
+<h4 id="bug-fixes-7">Bug Fixes</h4>
+<ul>
+<li>fix: add missing xml parser for code-mirror (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/1078c69">1078c69</a>)</li>
+</ul>
+<h2 id="v330-rc1-2018-01-19">v3.3.0-rc.1 (2018-01-19)</h2>
+<h4 id="bug-fixes-8">Bug Fixes</h4>
+<ul>
+<li>fix error in exporting codemirror (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/9f0e19d">9f0e19d</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/40">#40</a></li>
+</ul>
+<h4 id="internal-9">Internal</h4>
+<ul>
+<li>update ng-packagr to v2.0.0-rc.11 (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/9f0e19d">9f0e19d</a>)</li>
+</ul>
+<h4 id="documentation-2">Documentation</h4>
+<ul>
+<li>update additional docs (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/9f0e19d">9f0e19d</a>)</li>
+<li>removed wiki</li>
+</ul>
+<h2 id="v330-rc0-2018-01-19">v3.3.0-rc.0 (2018-01-19)</h2>
+<h4 id="features-5">Features</h4>
+<ul>
+<li>added event-emitter to emit <code>blur</code> and <code>focus</code> events (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2ed79b8">2ed79b8</a>)</li>
+<li>added option to view/edit plain <code>HTML</code> code (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2ed79b8">2ed79b8</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/26">#26</a></li>
+</ul>
+<h4 id="internal-10">Internal</h4>
+<ul>
+<li>update angular-cli to v1.6.5 (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2ed79b8">2ed79b8</a>)</li>
+<li>update devDependencies (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2ed79b8">2ed79b8</a>)</li>
+</ul>
+<h4 id="documentation-3">Documentation</h4>
+<ul>
+<li>docs autogenerated using <a href="%5B2ed79b8%5D(https://github.com/Sibiraj-S/ngx-editor/commit/2ed79b8)">compodoc</a></li>
+</ul>
+<!-- LINKS -->
+
+<h2 id="v321-2017-12-19">v3.2.1 (2017-12-19)</h2>
+<h4 id="bug-fixes-9">Bug Fixes</h4>
+<ul>
+<li>add button types to toolbar to avoid firing <code>submit</code> while using in reactive forms (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/d4ccc79">d4ccc79</a>)</li>
+</ul>
+<h4 id="enhancements-3">Enhancements</h4>
+<ul>
+<li>lighten placeholder color (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/27ccd72">27ccd72</a>)</li>
+</ul>
+<h2 id="v320-2017-12-14">v3.2.0 (2017-12-14)</h2>
+<h4 id="features-6">Features</h4>
+<ul>
+<li>enable or disable toolbar (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/0a915f5">0a915f5</a>)</li>
+</ul>
+<h4 id="bug-fixes-10">Bug Fixes</h4>
+<ul>
+<li>fix: horizontal overflow in editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/0a915f5">0a915f5</a>)</li>
+<li>minor style tweaks (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/4390502">4390502</a>)</li>
+</ul>
+<h2 id="v312-2017-12-05">v3.1.2 (2017-12-05)</h2>
+<h4 id="bug-fixes-11">Bug Fixes</h4>
+<ul>
+<li>remove methods that are not supported by Internet Explorer (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/7be2fd6">7be2fd6</a>)</li>
+<li>fix <code>grippie</code> svg not centre aligned in Internet Explorer (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/c87c5e4">c87c5e4</a>)</li>
+<li>fix inputs not replacing configuration (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/dabac4c">dabac4c</a>)</li>
+</ul>
+<h4 id="internal-11">Internal</h4>
+<ul>
+<li>update to <a href="%5B9aabe1c%5D(https://github.com/Sibiraj-S/ngx-editor/commit/9aabe1c)">@angular/cli v1.5.5</a></li>
+</ul>
+<!-- LINKS -->
+
+<h2 id="v311-2017-11-28">v3.1.1 (2017-11-28)</h2>
+<h4 id="internal-12">Internal</h4>
+<ul>
+<li>move dependencies to peerDependencies (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/0310191">0310191</a>)</li>
+</ul>
+<h2 id="v310-2017-11-25">v3.1.0 (2017-11-25)</h2>
+<h4 id="features-7">Features</h4>
+<ul>
+<li>Reactive forms support for the editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/ba350a8">ba350a83</a>)</li>
+</ul>
+<h4 id="breaking-changes-1">Breaking Changes</h4>
+<ul>
+<li>use <code>ngModel</code> instead of <code>html</code> for HTML bindings (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/ba350a8">ba350a83</a>)</li>
+</ul>
+<h2 id="v302-2017-11-24">v3.0.2 (2017-11-24)</h2>
+<h4 id="bug-fixes-12">Bug Fixes</h4>
+<ul>
+<li>check <code>html</code> has been initialized (#17) (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/ab0216b">ab0216b</a>). Thanks to @ssuperczynski</li>
+</ul>
+<h2 id="v301-2017-11-23">v3.0.1 (2017-11-23)</h2>
+<h4 id="internal-13">Internal</h4>
+<ul>
+<li>update to <a href="%5B1d3e1b2%5D(https://github.com/Sibiraj-S/ngx-editor/commit/1d3e1b2)">@angular/cli v1.5.4</a></li>
+</ul>
+<h4 id="bug-fixes-13">Bug Fixes</h4>
+<ul>
+<li>fix: default configuration not set onInit (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/443c994">443c994</a>)</li>
+</ul>
+<!-- Links -->
+
+<h2 id="v300-2017-11-23">v3.0.0 (2017-11-23)</h2>
+<h4 id="bug-fixes-14">Bug Fixes</h4>
+<ul>
+<li>fix HTML Model not updated after subscription on Observable (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/84946ed">84946ed</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/9">#9</a></li>
+</ul>
+<h4 id="internal-14">Internal</h4>
+<ul>
+<li>ngx-editor has been refactored. Thanks to @volodymyro-in6k (#11)</li>
+<li>update angular to v1.5.3 fixes a vulnerability warning due to older version of handlebars (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/b707409">b707409</a>)</li>
+<li>update <a href="%5Bcd45428%5D(https://github.com/Sibiraj-S/ngx-editor/commit/cd45428)">ng-packagr to v1.6.0</a></li>
+</ul>
+<!-- Links -->
+
+<h2 id="v201-2017-11-07">v2.0.1 (2017-11-07)</h2>
+<h4 id="internal-15">Internal</h4>
+<ul>
+<li>update ng-packagr to <a href="https://github.com/dherges/ng-packagr/blob/master/CHANGELOG.md#150-2017-11-05">v1.5.0</a> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/35fbb57">35fbb57</a>)</li>
+</ul>
+<h2 id="v200-2017-11-02">v2.0.0 (2017-11-02)</h2>
+<h4 id="performance-1">Performance</h4>
+<ul>
+<li>update angular to <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#500-pentagonal-donut-2017-11-01">v5.0.0</a> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/f12754b">f12754b</a>)</li>
+<li>update bootstrap to <a href="https://github.com/twbs/bootstrap/releases/tag/v4.0.0-beta.2">v4.0.0-beta.2</a> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/23adb5e">23adb5e</a>)</li>
+</ul>
+<h2 id="v121-2017-10-25">v1.2.1 (2017-10-25)</h2>
+<h4 id="bug-fixes-15">Bug Fixes</h4>
+<ul>
+<li>downgrade dependency to avoid incompatibility (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/45752bc">45752bc</a>)</li>
+<li>update insert image query text (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2748cc3">2748cc3</a>)</li>
+</ul>
+<h2 id="v120-2017-10-23">v1.2.0 (2017-10-23)</h2>
+<h4 id="features-8">Features</h4>
+<ul>
+<li>option to insert/edit link (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/63e401b">63e401b</a>)</li>
+<li>option to edit link (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/89389ab">89389ab</a>)</li>
+<li>unlink anchor tag (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/90f88a5">90f88a5</a>)</li>
+<li>enable toolbar only when editor is focused (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/b915d68">b915d68</a>)</li>
+</ul>
+<h4 id="internal-16">Internal</h4>
+<ul>
+<li>update ng-packagr (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/cebc696">cebc696</a>)</li>
+<li>fix dependency mismatches with angular (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/26a1a6d">26a1a6d</a>)</li>
+</ul>
+<h4 id="enhancements-4">Enhancements</h4>
+<ul>
+<li>CSS Tweaks</li>
+</ul>
+<h4 id="bug-fixes-16">Bug Fixes</h4>
+<ul>
+<li>enable/disbale toolbar on focusing the editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/8b2bb27">8b2bb27</a>)</li>
+</ul>
+<h2 id="v111-2017-10-09">v1.1.1 (2017-10-09)</h2>
+<h4 id="performance-2">Performance</h4>
+<ul>
+<li>use unique CSS classes (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/3ddc3b0">3ddc3b0</a>)</li>
+</ul>
+<h2 id="v110-2017-10-09">v1.1.0 (2017-10-09)</h2>
+<h4 id="features-9">Features</h4>
+<ul>
+<li>set <code>width</code> and <code>minWidth</code> to editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/731f2fc">731f2fc</a>)</li>
+<li>new resizer added (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/864a5be">864a5be</a>)</li>
+</ul>
+<h4 id="enhancements-5">Enhancements</h4>
+<ul>
+<li>remove units for zero value (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/3978843">3978843</a>)</li>
+</ul>
+<h2 id="v100-2017-10-06">v1.0.0 (2017-10-06)</h2>
+<h4 id="performance-3">Performance</h4>
+<ul>
+<li>improve value handling for attributes that hold boolean values (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/8695873">8695873</a>)</li>
+<li>better handling of default values (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/7a40862">7a40862</a>)</li>
+</ul>
+<h4 id="features-10">Features</h4>
+<ul>
+<li>set <code>height</code> and <code>minHeight</code> for editror (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/fdb1b30">fdb1b30</a>)</li>
+<li>toolbar customization (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/c6a2151">c6a2151</a>)</li>
+</ul>
+<h4 id="docs">DOCS</h4>
+<ul>
+<li>get latest release direct from github (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/b2ddf54">b2ddf54</a>)</li>
+<li>add <a href="https://github.com/Sibiraj-S/ngx-editor/wiki/ngxEditor">wiki</a> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/da7d0c7">da7d0c7</a>)</li>
+</ul>
+<h2 id="v100-beta3-2017-10-03">v1.0.0-beta.3 (2017-10-03)</h2>
+<h4 id="bug-fixes-17">Bug Fixes</h4>
+<ul>
+<li>undefined intialization in editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/d17c1dd">d17c1dd</a>)</li>
+</ul>
+<h4 id="internal-17">Internal</h4>
+<ul>
+<li>update angular to <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#444-2017-09-28">v4.4.4</a> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/d99dff2">d99dff2</a>)</li>
+<li>update ng-packagr to <a href="https://github.com/dherges/ng-packagr/blob/master/CHANGELOG.md#121-2017-09-29">v1.2.1</a> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/d99dff2">d99dff2</a>)</li>
+</ul>
+<h2 id="v100-beta2-2017-10-02">v1.0.0-beta.2 (2017-10-02)</h2>
+<h4 id="features-11">Features</h4>
+<ul>
+<li>enable (or) disable HTML5 <a href="https://www.w3schools.com/tags/att_translate.asp">translate</a> <a href="%5Baf66d69%5D(https://github.com/Sibiraj-S/ngx-editor/commit/af66d69)">An Experimental Option</a></li>
+<li>enable (or) disable editable nature of editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/4bff8e5">4bff8e5</a>)</li>
+</ul>
+<h4 id="enhancements-6">Enhancements</h4>
+<ul>
+<li>remove unused fullscreen function (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/af66d69">af66d69</a>)</li>
+<li><code>spellCheck</code> attribute renamed to <code>spellcheck</code> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/af66d69">af66d69</a>)</li>
+<li>remove instructions from docs (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/af66d69">af66d69</a>)</li>
+</ul>
+<h4 id="bug-fixes-18">Bug Fixes</h4>
+<ul>
+<li>fix spellcheck attribute binding to editable area (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/af66d69">af66d69</a>)</li>
+</ul>
+<h2 id="v100-beta1-2017-10-01">v1.0.0-beta.1 (2017-10-01)</h2>
+<h4 id="features-12">Features</h4>
+<ul>
+<li>bind HTML content with editor</li>
+</ul>
+<h2 id="v100-alpha3-2017-10-01">v1.0.0-alpha.3 (2017-10-01)</h2>
+<h4 id="changes-1">Changes</h4>
+<ul>
+<li>update README</li>
+<li>update <a href="https://sibiraj-s.github.io/ngx-editor/">demo</a></li>
+</ul>
+<h2 id="v100-alpha2-2017-09-28">v1.0.0-alpha.2 (2017-09-28)</h2>
+<h4 id="tweaks">Tweaks</h4>
+<ul>
+<li>remove font-awesome loaded by the module. Now font-awesome should be imported separately.</li>
+</ul>
+<h2 id="v100-alpha1-2017-09-27">v1.0.0-alpha.1 (2017-09-27)</h2>
+<h4 id="bug-fixes-19">Bug Fixes</h4>
+<ul>
+<li>fixes setting default values for the editor</li>
+</ul>
+<h2 id="v100-alpha-2017-09-27">v1.0.0-alpha (2017-09-27)</h2>
+<p>WYSIWYG Editor for Angular Applications.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'changelog.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
