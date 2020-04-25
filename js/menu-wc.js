@@ -66,25 +66,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <a href="additional-documentation/configuration.html" data-type="entity-link" data-context-id="additional">Configuration</a>
                                     </li>
                                     <li class="link ">
-                                        <a href="additional-documentation/toolbar.html" data-type="entity-link" data-context-id="additional">Toolbar</a>
-                                    </li>
-                                    <li class="link ">
-                                        <a href="additional-documentation/font-size.html" data-type="entity-link" data-context-id="additional">Font Size</a>
-                                    </li>
-                                    <li class="link ">
-                                        <a href="additional-documentation/colors.html" data-type="entity-link" data-context-id="additional">Colors</a>
-                                    </li>
-                                    <li class="link ">
-                                        <a href="additional-documentation/image-uploader.html" data-type="entity-link" data-context-id="additional">Image Uploader</a>
-                                    </li>
-                                    <li class="link ">
-                                        <a href="additional-documentation/insert-video.html" data-type="entity-link" data-context-id="additional">Insert Video</a>
-                                    </li>
-                                    <li class="link ">
-                                        <a href="additional-documentation/resizer.html" data-type="entity-link" data-context-id="additional">Resizer</a>
-                                    </li>
-                                    <li class="link ">
-                                        <a href="additional-documentation/errors.html" data-type="entity-link" data-context-id="additional">Errors</a>
+                                        <a href="additional-documentation/ngmodel-binding.html" data-type="entity-link" data-context-id="additional">NgModel Binding</a>
                                     </li>
                         </ul>
                     </li>
@@ -171,6 +153,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="copyright">
+                        Documentation generated using <a href="https://compodoc.app/" target="_blank">
+                            <img data-src="images/compodoc-vectorise.png" class="img-responsive" data-type="compodoc-logo">
+                        </a>
                     </li>
             </ul>
         </nav>

@@ -48,17 +48,23 @@
 
 
 
-<h1 id="resizer">Resizer</h1>
-<p>The editor can be resized horizontally.</p>
-<div><pre class="line-numbers"><code class="language-html">&lt;app-ngx-editor resizer=&quot;basic&quot;&gt;&lt;/app-ngx-editor&gt;</code></pre></div><h2 id="type">Type</h2>
-<div><pre class="line-numbers"><code class="language-js">resizer: string</code></pre></div><h3 id="options">Options</h3>
-<p>The Resizer can accept two values <code>basic|stack</code></p>
-<ul>
-<li>basic - CSS3 resizer</li>
-<li>stack - resizer like stackoverflow</li>
-</ul>
-<p>Any options apart from this will default to <code>stack</code></p>
+<h1 id="ngmodel">NgModel</h1>
+<p>Input can be a <a href="https://prosemirror.net/docs/ref/#model.Document_Structure">prosemirror document object</a> or <code>undefined</code> or <code>null</code></p>
+<div><pre class="line-numbers"><code class="language-ts">class AppComponent {
+  jsonDoc = null;
 
+  onChange(doc: object) {
+    this.jsonDoc = doc;
+  }
+}</code></pre></div><div><pre class="line-numbers"><code class="language-html">&lt;ngx-editor [ngModel]=&quot;jsonDoc&quot; (ngModelChange)=&quot;onChange&quot;&gt;&lt;/ngx-editor&gt;</code></pre></div><h2 id="generate-html-from-json">Generate HTML from JSON</h2>
+<div><pre class="line-numbers"><code class="language-ts">import { schema } from &quot;prosemirror-schema-basic&quot;;
+import { DOMSerializer } from &quot;prosemirror-model&quot;;
+
+const contentNode = schema.nodeFromJSON(jsonDoc);
+
+// https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
+const html: DocumentFragment = DOMSerializer.fromSchema(schema).serializeFragment(contentNode.content);
+console.log(html);</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
@@ -76,7 +82,7 @@
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
-            var COMPODOC_CURRENT_PAGE_URL = 'resizer.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ngmodel-binding.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

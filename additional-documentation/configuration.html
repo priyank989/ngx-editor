@@ -51,28 +51,13 @@
 <h1 id="configuration">Configuration</h1>
 <p>The Configuration can be provided using <code>config</code> property</p>
 <h2 id="usage">Usage</h2>
-<div><pre class="line-numbers"><code class="language-HTML">&lt;app-ngx-editor [config]=&quot;editorConfig&quot; [(ngModel)]=&quot;htmlContent&quot;&gt;&lt;/app-ngx-editor&gt;</code></pre></div><h3 id="default-configuration">Default Configuration</h3>
+<div><pre class="line-numbers"><code class="language-html">&lt;ngx-editor [config]=&quot;editorConfig&quot; [(ngModel)]=&quot;jsonDoc&quot; placeholder=&quot;Enter text here...&quot;&gt; &lt;/ngx-editor&gt;</code></pre></div><h3 id="default-configuration">Default Configuration</h3>
 <p>The config property is a JSON object.</p>
-<div><pre class="line-numbers"><code class="language-JSON">{
-    &quot;editable&quot;: true,
-    &quot;spellcheck&quot;: true,
-    &quot;height&quot;: &quot;auto&quot;,
-    &quot;minHeight&quot;: &quot;0&quot;,
-    &quot;width&quot;: &quot;auto&quot;,
-    &quot;minWidth&quot;: &quot;0&quot;,
-    &quot;translate&quot;: &quot;yes&quot;,
-    &quot;enableToolbar&quot;: true,
-    &quot;showToolbar&quot;: true,
-    &quot;placeholder&quot;: &quot;Enter text here...&quot;,
-    &quot;imageEndPoint&quot;: &quot;&quot;,
-    &quot;toolbar&quot;: [
-        [&quot;bold&quot;, &quot;italic&quot;, &quot;underline&quot;, &quot;strikeThrough&quot;, &quot;superscript&quot;, &quot;subscript&quot;],
-        [&quot;fontName&quot;, &quot;fontSize&quot;, &quot;color&quot;],
-        [&quot;justifyLeft&quot;, &quot;justifyCenter&quot;, &quot;justifyRight&quot;, &quot;justifyFull&quot;, &quot;indent&quot;, &quot;outdent&quot;],
-        [&quot;cut&quot;, &quot;copy&quot;, &quot;delete&quot;, &quot;removeFormat&quot;, &quot;undo&quot;, &quot;redo&quot;],
-        [&quot;paragraph&quot;, &quot;blockquote&quot;, &quot;removeBlockquote&quot;, &quot;horizontalLine&quot;, &quot;orderedList&quot;, &quot;unorderedList&quot;],
-        [&quot;link&quot;, &quot;unlink&quot;, &quot;image&quot;, &quot;video&quot;]
-    ]
+<div><pre class="line-numbers"><code class="language-json">{
+  &quot;toolbar&quot;: [[&quot;bold&quot;, &quot;italic&quot;, &quot;code&quot;]]
+}</code></pre></div><p>Configuration Type definition</p>
+<div><pre class="line-numbers"><code class="language-ts">interface Config {
+  toolbar: boolean | null | string[][];
 }</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
