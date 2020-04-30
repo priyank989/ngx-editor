@@ -629,9 +629,7 @@ export class NgxEditorComponent implements ControlValueAccessor, OnInit, OnDestr
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;NgxEditor-Wrapper&quot;&gt;
-  &lt;div #ngxEditor&gt;&lt;/div&gt;
-&lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;NgxEditor-Wrapper&quot; #ngxEditor&gt;&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -727,7 +725,7 @@ $icon-size: 30px;
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="NgxEditor-Wrapper">  <div #ngxEditor></div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="NgxEditor-Wrapper" #ngxEditor></div></div>'
     var COMPONENTS = [{'name': 'NgxEditorComponent', 'selector': 'ngx-editor'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NgxEditorComponent'};
