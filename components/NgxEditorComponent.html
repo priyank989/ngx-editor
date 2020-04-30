@@ -613,12 +613,12 @@ export class NgxEditorComponent implements ControlValueAccessor, OnInit, OnDestr
   }
 
   ngOnInit() {
-   this.options &#x3D; computeOptions({
-     placeholder: this.placeholder,
-     config: this.config
-   });
+    this.options &#x3D; computeOptions({
+      placeholder: this.placeholder,
+      config: this.config
+    });
 
-   this.createEditor();
+    this.createEditor();
   }
 
   ngOnDestroy() {

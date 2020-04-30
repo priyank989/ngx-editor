@@ -192,7 +192,7 @@ const getToolbar &#x3D; (config: Config): Toolbar &#x3D;&gt; {
 const computeOptions &#x3D; (options: Options): ComputedOptions &#x3D;&gt; {
   const computedOptions &#x3D; {} as ComputedOptions;
 
-  const config &#x3D; Object.assign({}, options.config, defaultConfig);
+  const config &#x3D; Object.assign({}, defaultConfig, options.config);
 
   computedOptions.toolbar &#x3D; getToolbar(config);
 
