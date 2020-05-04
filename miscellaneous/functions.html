@@ -58,22 +58,19 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#getHistoryKeyMap" title="src/lib/utils/plugins.ts"><b>getHistoryKeyMap</b>&nbsp;&nbsp;&nbsp;(src/.../plugins.ts)</a>
-                        </li>
-                        <li>
                             <a href="#getIconSvg" title="src/lib/utils/icons/index.ts"><b>getIconSvg</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
-                            <a href="#getMenuDom" title="src/lib/plugins/menu/getMenu.ts"><b>getMenuDom</b>&nbsp;&nbsp;&nbsp;(src/.../getMenu.ts)</a>
+                            <a href="#getSeperatorDom" title="src/lib/plugins/menu/MenuItems.ts"><b>getSeperatorDom</b>&nbsp;&nbsp;&nbsp;(src/.../MenuItems.ts)</a>
                         </li>
                         <li>
-                            <a href="#getSeperatorDom" title="src/lib/plugins/menu/getMenu.ts"><b>getSeperatorDom</b>&nbsp;&nbsp;&nbsp;(src/.../getMenu.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#menuPlugin" title="src/lib/plugins/menu/menu.ts"><b>menuPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
+                            <a href="#menuPlugin" title="src/lib/plugins/menu/index.ts"><b>menuPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
                             <a href="#placeholderPlugin" title="src/lib/plugins/placeholder.ts"><b>placeholderPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../placeholder.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#toggleList" title="src/lib/pm-tools/commands/toggleList.ts"><b>toggleList</b>&nbsp;&nbsp;&nbsp;(src/.../toggleList.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -82,33 +79,7 @@
     </table>
 </section>
 
-    <h3>src/lib/utils/plugins.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getHistoryKeyMap"></a>
-                    <span class="name">
-                        <b>
-                            getHistoryKeyMap
-                        </b>
-                        <a href="#getHistoryKeyMap"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getHistoryKeyMap()</code>
-                </td>
-            </tr>
-
-
-
-
-        </tbody>
-    </table>
-</section>    <h3>src/lib/utils/icons/index.ts</h3>
+    <h3>src/lib/utils/icons/index.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -163,69 +134,9 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/plugins/menu/getMenu.ts</h3>
+</section>    <h3>src/lib/plugins/menu/MenuItems.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getMenuDom"></a>
-                    <span class="name">
-                        <b>
-                            getMenuDom
-                        </b>
-                        <a href="#getMenuDom"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getMenuDom(name)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>name</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>HTMLElement</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
@@ -258,7 +169,7 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/plugins/menu/menu.ts</h3>
+</section>    <h3>src/lib/plugins/menu/index.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -359,6 +270,70 @@
                             <tbody>
                                 <tr>
                                     <td>text</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/pm-tools/commands/toggleList.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleList"></a>
+                    <span class="name">
+                        <b>
+                            toggleList
+                        </b>
+                        <a href="#toggleList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleList(type, itemType)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>itemType</td>
 
                                     <td>
                                         No

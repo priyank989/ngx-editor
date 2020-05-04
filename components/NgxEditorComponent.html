@@ -218,7 +218,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/lib/ngx-editor.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/lib/ngx-editor.component.ts:34</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -238,7 +238,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/lib/ngx-editor.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/lib/ngx-editor.component.ts:33</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -274,8 +274,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">src/lib/ngx-editor.component.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/lib/ngx-editor.component.ts:83</a></div>
                 </td>
             </tr>
 
@@ -313,8 +313,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/lib/ngx-editor.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/lib/ngx-editor.component.ts:49</a></div>
                 </td>
             </tr>
 
@@ -383,8 +383,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/lib/ngx-editor.component.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/lib/ngx-editor.component.ts:53</a></div>
                 </td>
             </tr>
 
@@ -422,8 +422,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/lib/ngx-editor.component.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/lib/ngx-editor.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -505,7 +505,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/lib/ngx-editor.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/lib/ngx-editor.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -527,7 +527,8 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from &#x27;@angular/forms&#x2
 import { EditorState, Transaction } from &#x27;prosemirror-state&#x27;;
 import { EditorView } from &#x27;prosemirror-view&#x27;;
 import { Node as ProsemirrorNode } from &#x27;prosemirror-model&#x27;;
-import { schema } from &#x27;prosemirror-schema-basic&#x27;;
+
+import schema from &#x27;./schema&#x27;;
 
 import { Config, ComputedOptions } from &#x27;./types&#x27;;
 
@@ -686,6 +687,7 @@ $icon-size: 30px;
 
 .NgxEditor-Content {
   padding: .5rem;
+  white-space: pre-wrap;
 
   p {
     margin: 0;

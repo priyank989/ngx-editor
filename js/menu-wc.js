@@ -68,6 +68,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <li class="link ">
                                         <a href="additional-documentation/ngmodel-binding.html" data-type="entity-link" data-context-id="additional">NgModel Binding</a>
                                     </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/shortcuts.html" data-type="entity-link" data-context-id="additional">Shortcuts</a>
+                                    </li>
                         </ul>
                     </li>
                     <li class="chapter modules">
@@ -111,6 +114,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="classes/MenuBarView.html" data-type="entity-link">MenuBarView</a>
                             </li>
+                            <li class="link">
+                                <a href="classes/MenuItems.html" data-type="entity-link">MenuItems</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/MenuItemView.html" data-type="entity-link">MenuItemView</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="chapter">
@@ -128,7 +137,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/Config.html" data-type="entity-link">Config</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/MenuItem.html" data-type="entity-link">MenuItem</a>
+                                <a href="interfaces/MenuItemMeta.html" data-type="entity-link">MenuItemMeta</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Options.html" data-type="entity-link">Options</a>

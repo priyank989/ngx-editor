@@ -57,8 +57,8 @@
     this.jsonDoc = doc;
   }
 }</code></pre></div><div><pre class="line-numbers"><code class="language-html">&lt;ngx-editor [ngModel]=&quot;jsonDoc&quot; (ngModelChange)=&quot;onChange&quot;&gt;&lt;/ngx-editor&gt;</code></pre></div><h2 id="generate-html-from-json">Generate HTML from JSON</h2>
-<div><pre class="line-numbers"><code class="language-ts">import { schema } from &quot;prosemirror-schema-basic&quot;;
-import { DOMSerializer } from &quot;prosemirror-model&quot;;
+<div><pre class="line-numbers"><code class="language-ts">import { DOMSerializer } from &quot;prosemirror-model&quot;;
+import { schema } from &quot;ngx-editor&quot;;
 
 const contentNode = schema.nodeFromJSON(jsonDoc);
 

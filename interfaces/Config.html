@@ -132,16 +132,19 @@ export interface Config {
   toolbar: boolean | Toolbar;
 }
 
-export interface MenuItem {
+export interface MenuItemMeta {
   key: string;
+  icon: string;
+  type: &#x27;mark&#x27; | &#x27;node&#x27;;
   command?: any;
-  dom: HTMLElement;
 }
 
 export interface ComputedOptions extends Config {
   placeholder: string;
   toolbar: Toolbar;
 }
+
+export type KeyMap &#x3D; { [key: string]: any };
 </code></pre>
     </div>
 </div>
