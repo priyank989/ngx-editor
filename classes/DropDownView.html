@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>MenuItemView</li>
+  <li>DropDownView</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -82,6 +82,9 @@
                             <li>
                                 <a href="#dom">dom</a>
                             </li>
+                            <li>
+                                <a href="#updates">updates</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -95,7 +98,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getDom">getDom</a>
+                                <a href="#getWrapperDom">getWrapperDom</a>
                             </li>
                             <li>
                                 <a href="#render">render</a>
@@ -118,12 +121,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(menuItem: <a href="../interfaces/MenuItemMeta.html">MenuItemMeta</a>, editorView: EditorView, spec: <a href="../interfaces/MenuItemViewSpec.html">MenuItemViewSpec</a>)</code>
+<code>constructor(dropdownGroup: <a href="../undefineds/ToolbarDropdownGroupKeys.html">ToolbarDropdownGroupKeys</a>, dropdownFields: <a href="../undefineds/ToolbarDropdownGroupValues.html">ToolbarDropdownGroupValues</a>, editorView: EditorView)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">src/lib/plugins/menu/menu.ts:188</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/lib/plugins/menu/menu.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -141,10 +144,22 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>menuItem</td>
+                                                        <td>dropdownGroup</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/MenuItemMeta.html" target="_self" >MenuItemMeta</a></code>
+                                                                        <code><a href="../miscellaneous/typealiases.html#ToolbarDropdownGroupKeys" target="_self" >ToolbarDropdownGroupKeys</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dropdownFields</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../miscellaneous/typealiases.html#ToolbarDropdownGroupValues" target="_self" >ToolbarDropdownGroupValues</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -157,18 +172,6 @@
                                                   
                                                         <td>
                                                                     <code>EditorView</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>spec</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../interfaces/MenuItemViewSpec.html" target="_self" >MenuItemViewSpec</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -210,7 +213,39 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">src/lib/plugins/menu/menu.ts:188</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/plugins/menu/menu.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updates"></a>
+                        <span class="name">
+                            <b>
+                            updates</b>
+                            <a href="#updates"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/lib/plugins/menu/menu.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -228,26 +263,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getDom"></a>
+                    <a name="getWrapperDom"></a>
                     <span class="name">
                         <b>
-                            getDom
+                            getWrapperDom
                         </b>
-                        <a href="#getDom"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getWrapperDom"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getDom()</code>
+<code>getWrapperDom()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="223"
-                            class="link-to-prism">src/lib/plugins/menu/menu.ts:223</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/lib/plugins/menu/menu.ts:60</a></div>
                 </td>
             </tr>
 
@@ -285,8 +320,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="196"
-                            class="link-to-prism">src/lib/plugins/menu/menu.ts:196</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="173"
+                            class="link-to-prism">src/lib/plugins/menu/menu.ts:173</a></div>
                 </td>
             </tr>
 
@@ -295,7 +330,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>{ dom: any; update: (state: any) &#x3D;&gt; void; }</code>
+                        <b>Returns : </b>    <code>{ dom: any; updates: {}; }</code>
 
                     </div>
                 </td>
@@ -695,7 +730,7 @@ export const renderMenu &#x3D; (toolbar: Toolbar, editorView: EditorView, menuDo
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'MenuItemView.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'DropDownView.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

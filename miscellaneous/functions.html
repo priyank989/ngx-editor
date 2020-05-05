@@ -61,13 +61,13 @@
                             <a href="#getIconSvg" title="src/lib/utils/icons/index.ts"><b>getIconSvg</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
-                            <a href="#getSeperatorDom" title="src/lib/plugins/menu/MenuItems.ts"><b>getSeperatorDom</b>&nbsp;&nbsp;&nbsp;(src/.../MenuItems.ts)</a>
-                        </li>
-                        <li>
                             <a href="#menuPlugin" title="src/lib/plugins/menu/index.ts"><b>menuPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
                             <a href="#placeholderPlugin" title="src/lib/plugins/placeholder.ts"><b>placeholderPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../placeholder.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#toggleBlockType" title="src/lib/pm-tools/commands/toggleBlockType.ts"><b>toggleBlockType</b>&nbsp;&nbsp;&nbsp;(src/.../toggleBlockType.ts)</a>
                         </li>
                         <li>
                             <a href="#toggleList" title="src/lib/pm-tools/commands/toggleList.ts"><b>toggleList</b>&nbsp;&nbsp;&nbsp;(src/.../toggleList.ts)</a>
@@ -96,7 +96,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getIconSvg(name)</code>
+<code>getIconSvg(name, width, height)</code>
                 </td>
             </tr>
 
@@ -125,45 +125,28 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>width</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>height</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>src/lib/plugins/menu/MenuItems.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getSeperatorDom"></a>
-                    <span class="name">
-                        <b>
-                            getSeperatorDom
-                        </b>
-                        <a href="#getSeperatorDom"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getSeperatorDom()</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>HTMLElement</code>
-
                     </div>
                 </td>
             </tr>
@@ -270,6 +253,87 @@
                             <tbody>
                                 <tr>
                                     <td>text</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/pm-tools/commands/toggleBlockType.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleBlockType"></a>
+                    <span class="name">
+                        <b>
+                            toggleBlockType
+                        </b>
+                        <a href="#toggleBlockType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleBlockType(type, toggleType, attrs: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank">object</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>toggleType</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>attrs</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                                    </td>
 
                                     <td>
                                         No

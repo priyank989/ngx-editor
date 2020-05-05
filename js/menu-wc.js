@@ -109,10 +109,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/MenuBarView.html" data-type="entity-link">MenuBarView</a>
+                                <a href="classes/DropDownView.html" data-type="entity-link">DropDownView</a>
                             </li>
                             <li class="link">
-                                <a href="classes/MenuItems.html" data-type="entity-link">MenuItems</a>
+                                <a href="classes/MenuBarView.html" data-type="entity-link">MenuBarView</a>
                             </li>
                             <li class="link">
                                 <a href="classes/MenuItemView.html" data-type="entity-link">MenuItemView</a>
@@ -135,6 +135,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/MenuItemMeta.html" data-type="entity-link">MenuItemMeta</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/MenuItemViewSpec.html" data-type="entity-link">MenuItemViewSpec</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Options.html" data-type="entity-link">Options</a>

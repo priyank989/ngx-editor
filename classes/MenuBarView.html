@@ -363,8 +363,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/lib/plugins/menu/MenuBarView.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/lib/plugins/menu/MenuBarView.ts:35</a></div>
                 </td>
             </tr>
 
@@ -395,7 +395,7 @@ import { EditorState } from &#x27;prosemirror-state&#x27;;
 
 import { Toolbar } from &#x27;../../types&#x27;;
 
-import MenuItems from &#x27;./MenuItems&#x27;;
+import { renderMenu } from &#x27;./menu&#x27;;
 
 class MenuBarView {
   toolbar: Toolbar;
@@ -418,10 +418,8 @@ class MenuBarView {
     const menuDom &#x3D; document.createElement(&#x27;div&#x27;);
     menuDom.className &#x3D; &#x27;NgxEditor-MenuBar&#x27;;
 
-    const menuItems &#x3D; new MenuItems(this.toolbar, this.view, menuDom);
-    menuItems.render();
-
-    this.updateMenuItems &#x3D; menuItems.update.bind(menuItems);
+    const { update } &#x3D; renderMenu(this.toolbar, this.view, menuDom);
+    this.updateMenuItems &#x3D; update;
 
     this.view.dom.parentNode.insertBefore(menuDom, this.view.dom);
   }
