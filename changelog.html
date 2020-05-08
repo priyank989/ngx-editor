@@ -45,17 +45,34 @@
 <li>Internal</li>
 </ul>
 </blockquote>
-<h2 id="v500-alpha4-2020-05-05">v5.0.0-alpha.4 (2020-05-05)</h2>
+<h2 id="v500-alpha5-2020-05-08">v5.0.0-alpha.5 (2020-05-08)</h2>
 <h4 id="features">Features</h4>
+<ul>
+<li>add support for prosemirror plugins (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/fcdc39b">fcdc39b</a>)</li>
+</ul>
+<h4 id="breaking-changes">Breaking Changes</h4>
+<ul>
+<li>placeholder and config property is replaced with plugins</li>
+</ul>
+<div><pre class="line-numbers"><code class="language-ts">import { menu, placeholder } from &quot;ngx-editor&quot;;
+
+NgxEditorModule.forRoot({
+  plugins: [menu(), placholder(&quot;Type something here...&quot;)],
+});</code></pre></div><ul>
+<li>shortcuts needs to be configured manually using plugins</li>
+<li>removed peerDependencies <code>prosemirror-history</code> and <code>prosemirror-keymap</code></li>
+</ul>
+<h2 id="v500-alpha4-2020-05-05">v5.0.0-alpha.4 (2020-05-05)</h2>
+<h4 id="features-1">Features</h4>
 <ul>
 <li>add support for headings (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2d7d38e">2d7d38e</a>)</li>
 </ul>
 <h2 id="v500-alpha3-2020-05-04">v5.0.0-alpha.3 (2020-05-04)</h2>
-<h4 id="features-1">Features</h4>
+<h4 id="features-2">Features</h4>
 <ul>
 <li>add support for list (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/274dcc7">274dcc7</a>)</li>
 </ul>
-<h4 id="breaking-changes">Breaking Changes</h4>
+<h4 id="breaking-changes-1">Breaking Changes</h4>
 <ul>
 <li>prosemirror <code>peerDependencies</code> are no longer needed (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/274dcc7">274dcc7</a>)</li>
 </ul>
@@ -66,7 +83,7 @@
 <li>remove empty DOM wrapper around the editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/5f176e1">5f176e1</a>)</li>
 </ul>
 <h2 id="v500-alpha1-2020-04-23">v5.0.0-alpha.1 (2020-04-23)</h2>
-<h4 id="breaking-changes-1">Breaking Changes</h4>
+<h4 id="breaking-changes-2">Breaking Changes</h4>
 <ul>
 <li>fix issues with ivy compiler (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/30b513c">30b513c</a>)</li>
 </ul>
@@ -76,11 +93,11 @@
 </ul>
 <h2 id="v500-alpha-2020-04-22">v5.0.0-alpha (2020-04-22)</h2>
 <p>The package is entirely rewritten with prosemirror as default editor. Most of the options are removed and will be added eventually in upcoming releases.</p>
-<h4 id="features-2">Features</h4>
+<h4 id="features-3">Features</h4>
 <ul>
 <li>use prosemirror as default editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/f17d0ef">f17d0ef</a>)</li>
 </ul>
-<h4 id="breaking-changes-2">Breaking Changes</h4>
+<h4 id="breaking-changes-3">Breaking Changes</h4>
 <ul>
 <li>remove <code>app</code> prefix from the component (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/bbe3daa">bbe3daa</a>)</li>
 <li>upgrade to angular 9 (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/b280769">b280769</a>)</li>
@@ -100,7 +117,7 @@
 <li>code cleanup</li>
 </ul>
 <h2 id="v410-beta0-2018-10-12">v4.1.0-beta.0 (2018-10-12)</h2>
-<h4 id="features-3">Features</h4>
+<h4 id="features-4">Features</h4>
 <ul>
 <li>new MaxLengthvalidator for validation in reactive forms</li>
 </ul>
@@ -143,12 +160,12 @@
 <li>update bootstrap (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/ee1555b">ee1555b</a>)</li>
 <li>update ng-packagr (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/b174a14">b174a14</a>)</li>
 </ul>
-<h4 id="breaking-changes-3">Breaking Changes</h4>
+<h4 id="breaking-changes-4">Breaking Changes</h4>
 <ul>
 <li>remove code-editor support (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/24b92e0">24b92e0</a>)</li>
 </ul>
 <h2 id="v330-rc13-2018-03-14">v3.3.0-rc.13 (2018-03-14)</h2>
-<h4 id="features-4">Features</h4>
+<h4 id="features-5">Features</h4>
 <ul>
 <li>auto-focus while switching to code-editor mode (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/1ed938e">1ed938e</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/79">#79</a></li>
 <li>show placeholder in code editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/bae2216">bae2216</a>)</li>
@@ -164,7 +181,7 @@
 <li>update dependencies in package-lock file to latest satisfying version (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/f62d945">f62d945</a>)</li>
 </ul>
 <h2 id="v330-rc12-2018-03-11">v3.3.0-rc.12 (2018-03-11)</h2>
-<h4 id="features-5">Features</h4>
+<h4 id="features-6">Features</h4>
 <ul>
 <li>support TAB key to focus the editor&#39;s text-area (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/8e3e65b">8e3e65b</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/79">#79</a></li>
 </ul>
@@ -202,7 +219,7 @@
 <li>don&#39;t override default styles (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/5beee77">5beee77</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/68">#68</a></li>
 </ul>
 <h2 id="v330-rc9-2018-02-26">v3.3.0-rc.9 (2018-02-26)</h2>
-<h4 id="features-6">Features</h4>
+<h4 id="features-7">Features</h4>
 <ul>
 <li><strong>style</strong> - highlight active tabs in popover (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/0b7dd99">0b7dd99</a>)</li>
 <li>option to set <code>font color</code> and <code>background color</code> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/a983fd4">a983fd4</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/65">#65</a></li>
@@ -237,7 +254,7 @@
 <li>updated docs (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/57e4056">57e4056</a>)</li>
 </ul>
 <h2 id="v330-rc5-2018-02-19">v3.3.0-rc.5 (2018-02-19)</h2>
-<h4 id="features-7">Features</h4>
+<h4 id="features-8">Features</h4>
 <ul>
 <li>option to open URL in new tab (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/d4001c4">d4001c4</a>)</li>
 <li>option to upload images from local filesystem (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/09b69b5">09b69b5</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/34">#34</a></li>
@@ -286,7 +303,7 @@
 <li>removed wiki</li>
 </ul>
 <h2 id="v330-rc0-2018-01-19">v3.3.0-rc.0 (2018-01-19)</h2>
-<h4 id="features-8">Features</h4>
+<h4 id="features-9">Features</h4>
 <ul>
 <li>added event-emitter to emit <code>blur</code> and <code>focus</code> events (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2ed79b8">2ed79b8</a>)</li>
 <li>added option to view/edit plain <code>HTML</code> code (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2ed79b8">2ed79b8</a>), closes <a href="https://github.com/sibiraj-s/ngx-editor/issues/26">#26</a></li>
@@ -312,7 +329,7 @@
 <li>lighten placeholder color (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/27ccd72">27ccd72</a>)</li>
 </ul>
 <h2 id="v320-2017-12-14">v3.2.0 (2017-12-14)</h2>
-<h4 id="features-9">Features</h4>
+<h4 id="features-10">Features</h4>
 <ul>
 <li>enable or disable toolbar (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/0a915f5">0a915f5</a>)</li>
 </ul>
@@ -340,11 +357,11 @@
 <li>move dependencies to peerDependencies (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/0310191">0310191</a>)</li>
 </ul>
 <h2 id="v310-2017-11-25">v3.1.0 (2017-11-25)</h2>
-<h4 id="features-10">Features</h4>
+<h4 id="features-11">Features</h4>
 <ul>
 <li>Reactive forms support for the editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/ba350a8">ba350a83</a>)</li>
 </ul>
-<h4 id="breaking-changes-4">Breaking Changes</h4>
+<h4 id="breaking-changes-5">Breaking Changes</h4>
 <ul>
 <li>use <code>ngModel</code> instead of <code>html</code> for HTML bindings (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/ba350a8">ba350a83</a>)</li>
 </ul>
@@ -395,7 +412,7 @@
 <li>update insert image query text (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/2748cc3">2748cc3</a>)</li>
 </ul>
 <h2 id="v120-2017-10-23">v1.2.0 (2017-10-23)</h2>
-<h4 id="features-11">Features</h4>
+<h4 id="features-12">Features</h4>
 <ul>
 <li>option to insert/edit link (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/63e401b">63e401b</a>)</li>
 <li>option to edit link (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/89389ab">89389ab</a>)</li>
@@ -421,7 +438,7 @@
 <li>use unique CSS classes (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/3ddc3b0">3ddc3b0</a>)</li>
 </ul>
 <h2 id="v110-2017-10-09">v1.1.0 (2017-10-09)</h2>
-<h4 id="features-12">Features</h4>
+<h4 id="features-13">Features</h4>
 <ul>
 <li>set <code>width</code> and <code>minWidth</code> to editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/731f2fc">731f2fc</a>)</li>
 <li>new resizer added (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/864a5be">864a5be</a>)</li>
@@ -436,7 +453,7 @@
 <li>improve value handling for attributes that hold boolean values (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/8695873">8695873</a>)</li>
 <li>better handling of default values (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/7a40862">7a40862</a>)</li>
 </ul>
-<h4 id="features-13">Features</h4>
+<h4 id="features-14">Features</h4>
 <ul>
 <li>set <code>height</code> and <code>minHeight</code> for editror (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/fdb1b30">fdb1b30</a>)</li>
 <li>toolbar customization (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/c6a2151">c6a2151</a>)</li>
@@ -457,7 +474,7 @@
 <li>update ng-packagr to <a href="https://github.com/dherges/ng-packagr/blob/master/CHANGELOG.md#121-2017-09-29">v1.2.1</a> (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/d99dff2">d99dff2</a>)</li>
 </ul>
 <h2 id="v100-beta2-2017-10-02">v1.0.0-beta.2 (2017-10-02)</h2>
-<h4 id="features-14">Features</h4>
+<h4 id="features-15">Features</h4>
 <ul>
 <li>enable (or) disable HTML5 <a href="https://www.w3schools.com/tags/att_translate.asp">translate</a> <a href="%5Baf66d69%5D(https://github.com/Sibiraj-S/ngx-editor/commit/af66d69)">An Experimental Option</a></li>
 <li>enable (or) disable editable nature of editor (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/4bff8e5">4bff8e5</a>)</li>
@@ -473,7 +490,7 @@
 <li>fix spellcheck attribute binding to editable area (<a href="https://github.com/Sibiraj-S/ngx-editor/commit/af66d69">af66d69</a>)</li>
 </ul>
 <h2 id="v100-beta1-2017-10-01">v1.0.0-beta.1 (2017-10-01)</h2>
-<h4 id="features-15">Features</h4>
+<h4 id="features-16">Features</h4>
 <ul>
 <li>bind HTML content with editor</li>
 </ul>
