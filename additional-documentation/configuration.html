@@ -51,23 +51,29 @@
 <h1 id="configuration">Configuration</h1>
 <p>The Configuration can be provided using <code>config</code> property</p>
 <h2 id="usage">Usage</h2>
-<div><pre class="line-numbers"><code class="language-html">&lt;ngx-editor
-  [config]=&quot;editorConfig&quot;
-  [(ngModel)]=&quot;jsonDoc&quot;
-  placeholder=&quot;Enter text here...&quot;
-&gt;
-&lt;/ngx-editor&gt;</code></pre></div><h3 id="default-configuration">Default Configuration</h3>
-<p>The config property is a JSON object. Each array is a group which is seperated by sperator.</p>
-<div><pre class="line-numbers"><code class="language-jsonc">{
-  &quot;toolbar&quot;: [
-    [&quot;bold&quot;, &quot;italic&quot;, &quot;code&quot;], // inline icons
-    [&quot;ordered_list&quot;, &quot;bullet_list&quot;],
-    [{ &quot;heading&quot;: [&quot;h1&quot;, &quot;h2&quot;, &quot;h3&quot;, &quot;h4&quot;, &quot;h5&quot;, &quot;h6&quot;] }] // dropdown
-  ]
-}</code></pre></div><p>Configuration Type definition</p>
-<div><pre class="line-numbers"><code class="language-ts">interface Config {
-  toolbar: boolean | null | string[][];
-}</code></pre></div>
+<div><pre class="line-numbers"><code class="language-ts">import { menu, placeholder } from &quot;ngx-editor&quot;;
+
+NgxEditorModule.forRoot({
+  plugins: [
+    menu({
+      // default options (Optional)
+      toolbar: [
+        [&quot;bold&quot;, &quot;italic&quot;, &quot;code&quot;], // inline icons
+        [&quot;ordered_list&quot;, &quot;bullet_list&quot;],
+        [{ heading: [&quot;h1&quot;, &quot;h2&quot;, &quot;h3&quot;, &quot;h4&quot;, &quot;h5&quot;, &quot;h6&quot;] }], // dropdown
+      ],
+      labels: {
+        bold: &quot;Bold&quot;,
+        italics: &quot;Italics&quot;,
+        code: &quot;Code&quot;,
+        ordered_list: &quot;Ordered List&quot;,
+        bullet_list: &quot;Bullet List&quot;,
+        heading: &quot;Heading&quot;,
+      },
+    }),
+    placholder(&quot;Type something here...&quot;),
+  ],
+});</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>

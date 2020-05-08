@@ -61,16 +61,13 @@
                             <a href="#getIconSvg" title="src/lib/utils/icons/index.ts"><b>getIconSvg</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
-                            <a href="#menuPlugin" title="src/lib/plugins/menu/index.ts"><b>menuPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                            <a href="#menuPlugin" title="src/lib/prosemirror/plugins/menu/index.ts"><b>menuPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
-                            <a href="#placeholderPlugin" title="src/lib/plugins/placeholder.ts"><b>placeholderPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../placeholder.ts)</a>
+                            <a href="#placeholderPlugin" title="src/lib/prosemirror/plugins/placeholder.ts"><b>placeholderPlugin</b>&nbsp;&nbsp;&nbsp;(src/.../placeholder.ts)</a>
                         </li>
                         <li>
-                            <a href="#toggleBlockType" title="src/lib/pm-tools/commands/toggleBlockType.ts"><b>toggleBlockType</b>&nbsp;&nbsp;&nbsp;(src/.../toggleBlockType.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#toggleList" title="src/lib/pm-tools/commands/toggleList.ts"><b>toggleList</b>&nbsp;&nbsp;&nbsp;(src/.../toggleList.ts)</a>
+                            <a href="#provideMyServiceOptions" title="src/lib/ngx-editor.service.ts"><b>provideMyServiceOptions</b>&nbsp;&nbsp;&nbsp;(src/.../ngx-editor.service.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -152,7 +149,7 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/plugins/menu/index.ts</h3>
+</section>    <h3>src/lib/prosemirror/plugins/menu/index.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -169,7 +166,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>menuPlugin(toolbar)</code>
+<code>menuPlugin(options)</code>
                 </td>
             </tr>
 
@@ -190,7 +187,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>toolbar</td>
+                                    <td>options</td>
 
                                     <td>
                                         No
@@ -214,7 +211,7 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/plugins/placeholder.ts</h3>
+</section>    <h3>src/lib/prosemirror/plugins/placeholder.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -269,105 +266,24 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>src/lib/pm-tools/commands/toggleBlockType.ts</h3>
+</section>    <h3>src/lib/ngx-editor.service.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="toggleBlockType"></a>
+                    <a name="provideMyServiceOptions"></a>
                     <span class="name">
                         <b>
-                            toggleBlockType
+                            provideMyServiceOptions
                         </b>
-                        <a href="#toggleBlockType"><span class="icon ion-ios-link"></span></a>
+                        <a href="#provideMyServiceOptions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>toggleBlockType(type, toggleType, attrs: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank">object</a>)</code>
-                </td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>type</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>toggleType</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>attrs</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>src/lib/pm-tools/commands/toggleList.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="toggleList"></a>
-                    <span class="name">
-                        <b>
-                            toggleList
-                        </b>
-                        <a href="#toggleList"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>toggleList(type, itemType)</code>
+<code>provideMyServiceOptions(config?)</code>
                 </td>
             </tr>
 
@@ -388,19 +304,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>type</td>
+                                    <td>config</td>
 
                                     <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>itemType</td>
-
-                                    <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -409,6 +316,13 @@
                         </table>
                     </div>
                     <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/NgxEditorConfig.html" target="_self" >NgxEditorConfig</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>

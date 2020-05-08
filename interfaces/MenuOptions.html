@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>Options</li>
+  <li>MenuOptions</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/lib/utils/computeOptions.ts</code>
+            <code>src/lib/types.ts</code>
         </p>
 
 
@@ -79,10 +79,12 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#config">config</a>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#labels">labels</a>
                                 </li>
                                 <li>
-                                        <a href="#placeholder">placeholder</a>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#toolbar">toolbar</a>
                                 </li>
                             </ul>
                         </td>
@@ -99,13 +101,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="config"></a>
-                                        <span class="name"><b>config</b><a href="#config"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="labels"></a>
+                                        <span class="name"><b>labels</b><a href="#labels"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>config:         <code><a href="../interfaces/Config.html" target="_self" >Config</a></code>
+                                        <code>labels:         <code><a href="../miscellaneous/typealiases.html#MenuLabels" target="_self" >MenuLabels</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -113,11 +115,16 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../interfaces/Config.html" target="_self" >Config</a></code>
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#MenuLabels" target="_self" >MenuLabels</a></code>
 
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -128,13 +135,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="placeholder"></a>
-                                        <span class="name"><b>placeholder</b><a href="#placeholder"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="toolbar"></a>
+                                        <span class="name"><b>toolbar</b><a href="#toolbar"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>placeholder:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>toolbar:         <code><a href="../miscellaneous/typealiases.html#Toolbar" target="_self" >Toolbar</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -142,11 +149,16 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Toolbar" target="_self" >Toolbar</a></code>
 
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -158,55 +170,30 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ComputedOptions, Config, Toolbar } from &#x27;../types&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Plugin } from &#x27;prosemirror-state&#x27;;
 
-interface Options {
-  placeholder: string;
-  config: Config;
+export type ToolbarDropdown &#x3D; { heading?: string[] };
+export type ToolbarDropdownGroupKeys &#x3D; keyof ToolbarDropdown;
+export type ToolbarDropdownGroupValues &#x3D; ToolbarDropdown[ToolbarDropdownGroupKeys];
+export type ToolbarItem &#x3D; string | ToolbarDropdown;
+export type Toolbar &#x3D; Array&lt;ToolbarItem[]&gt; | null;
+
+export interface MenuItemViewSpec {
+  classNames?: string[];
+  innerHTML?: string;
+  textContent?: string;
+  attrs?: { [key: string]: string };
 }
 
-const defaultToolbarOptions: Toolbar &#x3D; [
-  [&#x27;bold&#x27;, &#x27;italic&#x27;],
-  [&#x27;code&#x27;],
-  [&#x27;ordered_list&#x27;, &#x27;bullet_list&#x27;],
-  [{ heading: [&#x27;h1&#x27;, &#x27;h2&#x27;, &#x27;h3&#x27;, &#x27;h4&#x27;, &#x27;h5&#x27;, &#x27;h6&#x27;] }]
-];
+export interface NgxEditorConfig {
+  plugins: Plugin[];
+}
 
-const defaultConfig: Config &#x3D; {
-  toolbar: true
-};
-
-const getToolbar &#x3D; (config: Config): Toolbar &#x3D;&gt; {
-  let toolbar &#x3D; null;
-
-  // set toolbar options
-  if (typeof config.toolbar &#x3D;&#x3D;&#x3D; &#x27;boolean&#x27;) {
-    if (config.toolbar) {
-      toolbar &#x3D; defaultToolbarOptions;
-    }
-  } else {
-    toolbar &#x3D; config.toolbar;
-  }
-
-  return toolbar;
-};
-
-// prefer attributes to config
-const computeOptions &#x3D; (options: Options): ComputedOptions &#x3D;&gt; {
-  const computedOptions &#x3D; {} as ComputedOptions;
-
-  const config &#x3D; Object.assign({}, defaultConfig, options.config);
-
-  computedOptions.toolbar &#x3D; getToolbar(config);
-
-  if (options.placeholder) {
-    computedOptions.placeholder &#x3D; options.placeholder;
-  }
-
-  return computedOptions;
-};
-
-export default computeOptions;
+export type MenuLabels &#x3D; { [key: string]: string };
+export interface MenuOptions {
+  toolbar?: Toolbar;
+  labels?: MenuLabels;
+}
 </code></pre>
     </div>
 </div>
@@ -234,7 +221,7 @@ export default computeOptions;
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'Options.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'MenuOptions.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

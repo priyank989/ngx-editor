@@ -246,26 +246,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export type ToolbarDropdown &#x3D; { heading?: string[] };
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Plugin } from &#x27;prosemirror-state&#x27;;
+
+export type ToolbarDropdown &#x3D; { heading?: string[] };
 export type ToolbarDropdownGroupKeys &#x3D; keyof ToolbarDropdown;
 export type ToolbarDropdownGroupValues &#x3D; ToolbarDropdown[ToolbarDropdownGroupKeys];
 export type ToolbarItem &#x3D; string | ToolbarDropdown;
 export type Toolbar &#x3D; Array&lt;ToolbarItem[]&gt; | null;
-
-export interface Config {
-  toolbar: boolean | Toolbar;
-}
-
-export interface MenuItemMeta {
-  key: string;
-  icon?: string;
-  type: &#x27;mark&#x27; | &#x27;node&#x27;;
-  label?: string;
-  attrs?: {
-    level?: number
-  };
-  command?: any;
-}
 
 export interface MenuItemViewSpec {
   classNames?: string[];
@@ -274,12 +261,15 @@ export interface MenuItemViewSpec {
   attrs?: { [key: string]: string };
 }
 
-export interface ComputedOptions extends Config {
-  placeholder: string;
-  toolbar: Toolbar;
+export interface NgxEditorConfig {
+  plugins: Plugin[];
 }
 
-export type KeyMap &#x3D; { [key: string]: any };
+export type MenuLabels &#x3D; { [key: string]: string };
+export interface MenuOptions {
+  toolbar?: Toolbar;
+  labels?: MenuLabels;
+}
 </code></pre>
     </div>
 </div>

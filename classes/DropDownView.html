@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/lib/plugins/menu/menu.ts</code>
+            <code>src/lib/prosemirror/plugins/menu/menu.ts</code>
         </p>
 
 
@@ -121,12 +121,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(dropdownGroup: <a href="../undefineds/ToolbarDropdownGroupKeys.html">ToolbarDropdownGroupKeys</a>, dropdownFields: <a href="../undefineds/ToolbarDropdownGroupValues.html">ToolbarDropdownGroupValues</a>, editorView: EditorView)</code>
+<code>constructor(dropdownGroup: <a href="../undefineds/ToolbarDropdownGroupKeys.html">ToolbarDropdownGroupKeys</a>, dropdownFields: <a href="../undefineds/ToolbarDropdownGroupValues.html">ToolbarDropdownGroupValues</a>, editorView: EditorView, options: <a href="../interfaces/MenuOptions.html">MenuOptions</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/lib/plugins/menu/menu.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -179,6 +179,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>options</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/MenuOptions.html" target="_self" >MenuOptions</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -213,7 +225,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/plugins/menu/menu.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -245,7 +257,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/lib/plugins/menu/menu.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -282,7 +294,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/lib/plugins/menu/menu.ts:60</a></div>
+                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:60</a></div>
                 </td>
             </tr>
 
@@ -320,8 +332,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="173"
-                            class="link-to-prism">src/lib/plugins/menu/menu.ts:173</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:175</a></div>
                 </td>
             </tr>
 
@@ -353,27 +365,23 @@ import { EditorState } from &#x27;prosemirror-state&#x27;;
 import { MarkType, NodeType } from &#x27;prosemirror-model&#x27;;
 
 import {
-  Toolbar,
-  MenuItemMeta,
   MenuItemViewSpec,
   ToolbarItem,
   ToolbarDropdownGroupKeys,
-  ToolbarDropdownGroupValues
-} from &#x27;../../types&#x27;;
+  ToolbarDropdownGroupValues,
+  MenuOptions
+} from &#x27;../../../types&#x27;;
 
-import schema from &#x27;../../schema&#x27;;
+import schema from &#x27;../../../schema&#x27;;
 
-import isNodeActive from &#x27;../../pm-tools/helpers/isNodeActive&#x27;;
-import isMarkActive from &#x27;../../pm-tools/helpers/isMarkActive&#x27;;
-import toggleList from &#x27;../../pm-tools/commands/toggleList&#x27;;
-import toggleBlockType from &#x27;../../pm-tools/commands/toggleBlockType&#x27;;
+import isNodeActive from &#x27;../../helpers/isNodeActive&#x27;;
+import isMarkActive from &#x27;../../helpers/isMarkActive&#x27;;
+import { toggleList, toggleBlockType } from &#x27;../../commands&#x27;;
 
-import { getIconSvg } from &#x27;../../utils/icons&#x27;;
-import flatDeep from &#x27;../../utils/flatDeep&#x27;;
+import { getIconSvg } from &#x27;../../../utils/icons&#x27;;
+import flatDeep from &#x27;../../../utils/flatDeep&#x27;;
 
-import menuItemsMeta from &#x27;./meta&#x27;;
-
-import { labels } from &#x27;./i18n&#x27;;
+import menuItemsMeta, {MenuItemMeta} from &#x27;./meta&#x27;;
 
 const MENU_ITEM_CLASSNAME &#x3D; &#x27;NgxEditor-MenuItem&#x27;;
 
@@ -392,6 +400,8 @@ class DropDownView {
   private dropdownGroup: ToolbarDropdownGroupKeys;
   private dropdownFields: ToolbarDropdownGroupValues;
   private editorView: EditorView;
+  private options: MenuOptions;
+
   dom: HTMLElement;
 
   updates &#x3D; [];
@@ -399,16 +409,20 @@ class DropDownView {
   constructor(
     dropdownGroup: ToolbarDropdownGroupKeys,
     dropdownFields: ToolbarDropdownGroupValues,
-    editorView: EditorView
+    editorView: EditorView,
+    options: MenuOptions
   ) {
     this.dropdownGroup &#x3D; dropdownGroup;
     this.dropdownFields &#x3D; dropdownFields;
     this.editorView &#x3D; editorView;
+    this.options &#x3D; options;
   }
 
   getWrapperDom(): HTMLElement {
     let isDropdownOpen &#x3D; false;
     const dropdownWrapper &#x3D; document.createElement(&#x27;div&#x27;);
+
+    const labels &#x3D; this.options.labels;
 
     dropdownWrapper.classList.add(MENU_ITEM_CLASSNAME);
     dropdownWrapper.classList.add(&#x60;${MENU_ITEM_CLASSNAME}__Dropdown-Wrapper&#x60;);
@@ -635,8 +649,10 @@ const getSeperatorDom &#x3D; (): HTMLElement &#x3D;&gt; {
   return div;
 };
 
-export const renderMenu &#x3D; (toolbar: Toolbar, editorView: EditorView, menuDom: HTMLElement) &#x3D;&gt; {
+export const renderMenu &#x3D; (options: MenuOptions, editorView: EditorView, menuDom: HTMLElement) &#x3D;&gt; {
   const updates: any[] &#x3D; [];
+
+  const toolbar &#x3D; options.toolbar;
 
   toolbar.forEach((group: ToolbarItem[], toolbarIndex: number): void &#x3D;&gt; {
     const isLastMenuGroup &#x3D; toolbar.length - 1 &#x3D;&#x3D;&#x3D; toolbarIndex;
@@ -650,7 +666,7 @@ export const renderMenu &#x3D; (toolbar: Toolbar, editorView: EditorView, menuDo
           if (DROPDOWN_ITEMS.has(dropdownGroup)) {
             const dropdown: ToolbarDropdownGroupValues &#x3D; toolbarItem[dropdownGroup];
 
-            const dropdownView &#x3D; new DropDownView(dropdownGroup, dropdown, editorView);
+            const dropdownView &#x3D; new DropDownView(dropdownGroup, dropdown, editorView, options);
             const rendered &#x3D; dropdownView.render();
             updates.push(rendered.updates);
             menuDom.appendChild(rendered.dom);
@@ -664,6 +680,8 @@ export const renderMenu &#x3D; (toolbar: Toolbar, editorView: EditorView, menuDo
       if (typeof toolbarItem &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
         const menuItem &#x3D; menuItemsMeta[toolbarItem];
 
+        const labels &#x3D; options.labels;
+
         if (menuItem) {
           const spec: MenuItemViewSpec &#x3D; {
             classNames: [
@@ -673,7 +691,7 @@ export const renderMenu &#x3D; (toolbar: Toolbar, editorView: EditorView, menuDo
             ],
             innerHTML: getIconSvg(menuItem.icon),
             attrs: {
-              title: menuItem.key
+              title: labels[menuItem.i18nKey]
             }
           };
 

@@ -188,21 +188,121 @@
             </div>
         </div>
 
+        <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forRoot"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            forRoot
+                        </b>
+                        <a href="#forRoot"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>forRoot(config: <a href="../interfaces/NgxEditorConfig.html">NgxEditorConfig</a>)</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/lib/ngx-editor.module.ts:16</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>config</td>
+                                    <td>
+                                                <code><a href="../interfaces/NgxEditorConfig.html" target="_self" >NgxEditorConfig</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://angular.io/api/core/ModuleWithProviders" target="_blank" >ModuleWithProviders</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, ModuleWithProviders, InjectionToken } from &#x27;@angular/core&#x27;;
 
 import { NgxEditorComponent } from &#x27;./ngx-editor.component&#x27;;
+
+import { NgxEditorServiceConfig, provideMyServiceOptions } from &#x27;./ngx-editor.service&#x27;;
+import { NgxEditorConfig } from &#x27;./types&#x27;;
+
+const NGX_EDITOR_CONFIG_TOKEN &#x3D; new InjectionToken&lt;NgxEditorConfig&gt;(&#x27;NgxEditorConfig&#x27;);
 
 @NgModule({
   declarations: [NgxEditorComponent],
   exports: [NgxEditorComponent],
 })
 
-export class NgxEditorModule { }
+export class NgxEditorModule {
+  static forRoot(config: NgxEditorConfig): ModuleWithProviders {
+
+    return {
+      ngModule: NgxEditorModule,
+      providers: [
+        {
+          provide: NGX_EDITOR_CONFIG_TOKEN,
+          useValue: config
+        },
+        {
+          provide: NgxEditorServiceConfig,
+          useFactory: provideMyServiceOptions,
+          deps: [NGX_EDITOR_CONFIG_TOKEN]
+        }
+      ]
+    };
+  }
+}
 </code></pre>
     </div>
 </div>

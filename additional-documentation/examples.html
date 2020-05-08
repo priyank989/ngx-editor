@@ -48,18 +48,64 @@
 
 
 
-<h1 id="shortcuts">Shortcuts</h1>
+<h1 id="examples">Examples</h1>
+<h3 id="implement-undoredo-history">Implement undo/redo history</h3>
+<p>Reference</p>
 <ul>
-<li><strong>Mod+b</strong> - Toggle Strong</li>
-<li><strong>Mod+i</strong> - Toggle Emphasis</li>
-<li><strong>Mod+`</strong> - Toggle Code</li>
-<li><strong>Mod+Z</strong> - Undo</li>
-<li><strong>Shift-Mod-z or Mod-y</strong> - Redo</li>
-<li><strong>Mod-[</strong> - Lift the list item around the selection up into a wrapping list</li>
-<li><strong>Mod-] or Tab</strong> - Sink the list item around the selection down into an inner list</li>
+<li><a href="https://prosemirror.net/docs/ref/#history">https://prosemirror.net/docs/ref/#history</a></li>
+<li><a href="https://prosemirror.net/docs/ref/#keymap">https://prosemirror.net/docs/ref/#keymap</a></li>
 </ul>
-<p>Note: <strong>Mod-</strong> is a shorthand for <strong>Cmd-</strong> on Mac and <strong>Ctrl-</strong> on other platforms.</p>
+<div><pre class="line-numbers"><code class="language-ts">import { undo, redo, history } from &quot;prosemirror-history&quot;;
+import { keymap } from &quot;prosemirror-keymap&quot;;
 
+NgxEditorModule.forRoot({
+  plugins: [
+    history(), // enable history support
+    keymap({
+      // configure shortcuts
+      &quot;Mod-z&quot;: undo,
+      &quot;Shift-Mod-z&quot;: redo,
+    }),
+  ],
+});</code></pre></div><h3 id="configure-shortcts-to-work-with-list-items">Configure shortcts to work with list items</h3>
+<p>Reference</p>
+<ul>
+<li><a href="https://prosemirror.net/docs/ref/#keymap">https://prosemirror.net/docs/ref/#keymap</a></li>
+<li><a href="https://prosemirror.net/docs/ref/#schema-list">https://prosemirror.net/docs/ref/#schema-list</a></li>
+</ul>
+<div><pre class="line-numbers"><code class="language-ts">import { schema } from &quot;ngx-editor&quot;;
+import { splitListItem, liftListItem, sinkListItem } from &quot;prosemirror-schema-list&quot;;
+import { keymap } from &quot;prosemirror-keymap&quot;;
+
+NgxEditorModule.forRoot({
+  plugins: [
+    keymap({
+      Enter: splitListItem(schema.nodes.list_item),
+      &quot;Mod-[&quot;: liftListItem(schema.nodes.list_item),
+      &quot;Mod-]&quot;: sinkListItem(schema.nodes.list_item),
+      Tab: sinkListItem(schema.nodes.list_item),
+    }),
+  ],
+});</code></pre></div><h3 id="extras">Extras</h3>
+<p>Reference</p>
+<ul>
+<li><a href="https://prosemirror.net/docs/ref/#commands">https://prosemirror.net/docs/ref/#commands</a></li>
+<li><a href="https://prosemirror.net/docs/ref/#keymap">https://prosemirror.net/docs/ref/#keymap</a></li>
+</ul>
+<div><pre class="line-numbers"><code class="language-ts">import { schema } from &quot;ngx-editor&quot;;
+import { keymap } from &quot;prosemirror-keymap&quot;;
+import { toggleMark, baseKeymap } from &quot;prosemirror-commands&quot;;
+
+NgxEditorModule.forRoot({
+  plugins: [
+    keymap({
+      &quot;Mod-b&quot;: toggleMark(schema.marks.strong), // toggle strong
+      &quot;Mod-i&quot;: toggleMark(schema.marks.em), // toggle italics
+      &quot;Mod-`&quot;: toggleMark(schema.marks.code), // toggle code
+    }),
+    keymap(baseKeymap),
+  ],
+});</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
@@ -77,7 +123,7 @@
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
-            var COMPODOC_CURRENT_PAGE_URL = 'shortcuts.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'examples.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
