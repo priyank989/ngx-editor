@@ -60,11 +60,18 @@
 <div><pre class="line-numbers"><code class="language-ts">import { DOMSerializer } from &quot;prosemirror-model&quot;;
 import { schema } from &quot;ngx-editor&quot;;
 
-const contentNode = schema.nodeFromJSON(jsonDoc);
+const contentNode = schema.nodeFromJSON(this.jsonDoc);
 
 // https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
 const html: DocumentFragment = DOMSerializer.fromSchema(schema).serializeFragment(contentNode.content);
-console.log(html);</code></pre></div>
+console.log(html);</code></pre></div><h2 id="generating-json-from-html">Generating JSON from HTML</h2>
+<div><pre class="line-numbers"><code class="language-ts">import { DOMParser } from &#39;prosemirror-model&#39;;
+import { schema } from &#39;ngx-editor&#39;;
+
+const el = document.createElement(&#39;div&#39;)
+el.innerHTML = htmlString
+
+this.jsonDoc = DOMParser.fromSchema(schema).parse(el).toJSON()</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
