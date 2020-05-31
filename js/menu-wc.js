@@ -63,10 +63,25 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <a href="additional-documentation/configuration.html" data-type="entity-link" data-context-id="additional">Configuration</a>
                                     </li>
                                     <li class="link ">
-                                        <a href="additional-documentation/ngmodel-binding.html" data-type="entity-link" data-context-id="additional">NgModel Binding</a>
+                                        <a href="additional-documentation/ngmodel.html" data-type="entity-link" data-context-id="additional">NgModel</a>
                                     </li>
                                     <li class="link ">
-                                        <a href="additional-documentation/examples.html" data-type="entity-link" data-context-id="additional">Examples</a>
+                                        <a href="additional-documentation/history.html" data-type="entity-link" data-context-id="additional">History</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/shortcuts.html" data-type="entity-link" data-context-id="additional">Shortcuts</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/html.html" data-type="entity-link" data-context-id="additional">HTML</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/menu-plugin.html" data-type="entity-link" data-context-id="additional">Menu Plugin</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/schema.html" data-type="entity-link" data-context-id="additional">Schema</a>
+                                    </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/inline-code-editor.html" data-type="entity-link" data-context-id="additional">Inline Code Editor</a>
                                     </li>
                         </ul>
                     </li>
@@ -154,6 +169,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/NgxEditorConfig.html" data-type="entity-link">NgxEditorConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/NodeViews.html" data-type="entity-link">NodeViews</a>
                             </li>
                         </ul>
                     </li>

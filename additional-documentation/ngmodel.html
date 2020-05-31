@@ -48,32 +48,15 @@
 
 
 
-<h1 id="configuration">Configuration</h1>
-<div><pre class="line-numbers"><code class="language-ts">import { menu, placeholder, schema } from &#39;ngx-editor&#39;;
+<h1 id="ngmodel">NgModel</h1>
+<p>Input can be a <a href="https://prosemirror.net/docs/ref/#model.Document_Structure">prosemirror document object</a> or <code>undefined</code> or <code>null</code></p>
+<div><pre class="line-numbers"><code class="language-ts">class AppComponent {
+  jsonDoc = null;
 
-NgxEditorModule.forRoot({
-  schema, // optional scheama, see https://sibiraj.dev/ngx-editor/additional-documentation/schema.html
-  plugins: [
-    menu({
-      // default options (Optional)
-      toolbar: [
-        [&#39;bold&#39;, &#39;italic&#39;, &#39;code&#39;], // inline icons
-        [&#39;ordered_list&#39;, &#39;bullet_list&#39;],
-        [{ heading: [&#39;h1&#39;, &#39;h2&#39;, &#39;h3&#39;, &#39;h4&#39;, &#39;h5&#39;, &#39;h6&#39;] }] // dropdown
-      ],
-      labels: {
-        bold: &#39;Bold&#39;,
-        italics: &#39;Italics&#39;,
-        code: &#39;Code&#39;,
-        ordered_list: &#39;Ordered List&#39;,
-        bullet_list: &#39;Bullet List&#39;,
-        heading: &#39;Heading&#39;
-      }
-    }),
-    placholder(&#39;Type something here...&#39;)
-  ],
-  nodeViews: {} // optional, for example see https://prosemirror.net/examples/footnote/
-});</code></pre></div>
+  onChange(doc: object) {
+    this.jsonDoc = doc;
+  }
+}</code></pre></div><div><pre class="line-numbers"><code class="language-html">&lt;ngx-editor [ngModel]=&quot;jsonDoc&quot; (ngModelChange)=&quot;onChange&quot;&gt;&lt;/ngx-editor&gt;</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
@@ -91,7 +74,7 @@ NgxEditorModule.forRoot({
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
-            var COMPODOC_CURRENT_PAGE_URL = 'configuration.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ngmodel.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

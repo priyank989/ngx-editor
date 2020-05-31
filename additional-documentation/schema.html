@@ -48,30 +48,51 @@
 
 
 
-<h1 id="ngmodel">NgModel</h1>
-<p>Input can be a <a href="https://prosemirror.net/docs/ref/#model.Document_Structure">prosemirror document object</a> or <code>undefined</code> or <code>null</code></p>
-<div><pre class="line-numbers"><code class="language-ts">class AppComponent {
-  jsonDoc = null;
+<h1 id="configuration">Configuration</h1>
+<p>The Configuration can be provided using <code>config</code> property</p>
+<p>Ref: <a href="https://prosemirror.net/examples/schema/">https://prosemirror.net/examples/schema/</a></p>
+<p>Example: <a href="https://github.com/sibiraj-s/ngx-editor/tree/master/demo">https://github.com/sibiraj-s/ngx-editor/tree/master/demo</a></p>
+<h2 id="usage">Usage</h2>
+<div><pre class="line-numbers"><code class="language-ts">import { menu, placeholder, schema } from &#39;ngx-editor&#39;;
 
-  onChange(doc: object) {
-    this.jsonDoc = doc;
+NgxEditorModule.forRoot({
+  schema
+});</code></pre></div><h2 id="create-custom-schema">Create custom schema</h2>
+<div><pre class="line-numbers"><code class="language-ts">import { nodes as basicNodes, marks as basicMarks } from &#39;ngx-editor&#39;;
+import { Schema, Node as ProsemirrorNode, NodeSpec } from &#39;prosemirror-model&#39;;
+
+const codeBlock: NodeSpec = {
+  group: &#39;block&#39;,
+  attrs: {
+    text: { default: &#39;&#39; },
+    language: { default: &#39;text/javascript&#39; }
+  },
+  parseDOM: [
+    {
+      tag: &#39;pre&#39;,
+      getAttrs: (dom: HTMLElement) =&gt; {
+        return {
+          text: dom.textContent,
+          language: dom.getAttribute(&#39;data-language&#39;) || &#39;text/plain&#39;
+        };
+      }
+    }
+  ],
+  toDOM(node: ProsemirrorNode) {
+    return [&#39;pre&#39;, { &#39;data-language&#39;: node.attrs.language }, node.attrs.text];
   }
-}</code></pre></div><div><pre class="line-numbers"><code class="language-html">&lt;ngx-editor [ngModel]=&quot;jsonDoc&quot; (ngModelChange)=&quot;onChange&quot;&gt;&lt;/ngx-editor&gt;</code></pre></div><h2 id="generate-html-from-json">Generate HTML from JSON</h2>
-<div><pre class="line-numbers"><code class="language-ts">import { DOMSerializer } from &quot;prosemirror-model&quot;;
-import { schema } from &quot;ngx-editor&quot;;
+};
 
-const contentNode = schema.nodeFromJSON(this.jsonDoc);
+const nodes = Object.assign({}, basicNodes, {
+  code_mirror: codeBlock
+});
 
-// https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
-const html: DocumentFragment = DOMSerializer.fromSchema(schema).serializeFragment(contentNode.content);
-console.log(html);</code></pre></div><h2 id="generating-json-from-html">Generating JSON from HTML</h2>
-<div><pre class="line-numbers"><code class="language-ts">import { DOMParser } from &#39;prosemirror-model&#39;;
-import { schema } from &#39;ngx-editor&#39;;
+const schema = new Schema({
+  nodes,
+  marks: basicMarks
+});
 
-const el = document.createElement(&#39;div&#39;)
-el.innerHTML = htmlString
-
-this.jsonDoc = DOMParser.fromSchema(schema).parse(el).toJSON()</code></pre></div>
+export default schema;</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
@@ -89,7 +110,7 @@ this.jsonDoc = DOMParser.fromSchema(schema).parse(el).toJSON()</code></pre></div
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
-            var COMPODOC_CURRENT_PAGE_URL = 'ngmodel-binding.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'schema.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

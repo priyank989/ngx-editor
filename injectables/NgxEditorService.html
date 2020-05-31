@@ -101,7 +101,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/lib/ngx-editor.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/lib/ngx-editor.service.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -165,7 +165,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/lib/ngx-editor.service.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/lib/ngx-editor.service.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -180,24 +180,33 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Optional } from &#x27;@angular/core&#x27;;
 
-import { NgxEditorConfig } from &#x27;./types&#x27;;
+import { Schema } from &#x27;prosemirror-model&#x27;;
+import { Plugin } from &#x27;prosemirror-state&#x27;;
+
+import { NgxEditorConfig, NodeViews } from &#x27;./types&#x27;;
 
 import menu from &#x27;./prosemirror/plugins/menu&#x27;;
 import placeholder from &#x27;./prosemirror/plugins/placeholder&#x27;;
+import { schema } from &#x27;./schema&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
 export class NgxEditorServiceConfig {
-  public plugins &#x3D; [
+  public plugins: Plugin[] &#x3D; [
     menu(),
     placeholder()
   ];
+
+  public nodeViews: NodeViews &#x3D; {};
+  public schema: Schema &#x3D; schema;
 }
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
 export class NgxEditorService {
   config: NgxEditorServiceConfig;
 
@@ -206,8 +215,14 @@ export class NgxEditorService {
   }
 }
 
+const defaultConfig: NgxEditorConfig &#x3D; {
+  plugins: [],
+  nodeViews: {},
+  schema
+};
+
 export function provideMyServiceOptions(config?: NgxEditorConfig): NgxEditorConfig {
-  return (config);
+  return Object.assign({}, defaultConfig, config);
 }
 </code></pre>
     </div>

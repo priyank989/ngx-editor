@@ -58,6 +58,12 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#ACTIVE_DROPDOWN_ITEM_CLASSNAME" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>ACTIVE_DROPDOWN_ITEM_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ACTIVE_MENU_ITEM_CLASSNAME" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>ACTIVE_MENU_ITEM_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
+                        </li>
+                        <li>
                             <a href="#bulletList" title="src/lib/schema.ts"><b>bulletList</b>&nbsp;&nbsp;&nbsp;(src/.../schema.ts)</a>
                         </li>
                         <li>
@@ -79,7 +85,19 @@
                             <a href="#DEFAULT_TOOLBAR" title="src/lib/prosemirror/plugins/menu/index.ts"><b>DEFAULT_TOOLBAR</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
+                            <a href="#defaultConfig" title="src/lib/ngx-editor.service.ts"><b>defaultConfig</b>&nbsp;&nbsp;&nbsp;(src/.../ngx-editor.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DISABLED_CLASSNAME" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>DISABLED_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
+                        </li>
+                        <li>
                             <a href="#DROPDOWN_ITEMS" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>DROPDOWN_ITEMS</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DROPDWON_ITEM_CLASSNAME" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>DROPDWON_ITEM_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DROPWDOWN_OPEN_CLASSNAME" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>DROPWDOWN_OPEN_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
                         </li>
                         <li>
                             <a href="#flatDeep" title="src/lib/utils/flatDeep.ts"><b>flatDeep</b>&nbsp;&nbsp;&nbsp;(src/.../flatDeep.ts)</a>
@@ -106,6 +124,9 @@
                             <a href="#listItem" title="src/lib/schema.ts"><b>listItem</b>&nbsp;&nbsp;&nbsp;(src/.../schema.ts)</a>
                         </li>
                         <li>
+                            <a href="#marks" title="src/lib/schema.ts"><b>marks</b>&nbsp;&nbsp;&nbsp;(src/.../schema.ts)</a>
+                        </li>
+                        <li>
                             <a href="#menu" title="src/lib/prosemirror/plugins/menu/index.ts"><b>menu</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
@@ -124,10 +145,19 @@
                             <a href="#orderedList" title="src/lib/schema.ts"><b>orderedList</b>&nbsp;&nbsp;&nbsp;(src/.../schema.ts)</a>
                         </li>
                         <li>
+                            <a href="#PLACEHOLDER_CLASSNAME" title="src/lib/prosemirror/plugins/placeholder.ts"><b>PLACEHOLDER_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../placeholder.ts)</a>
+                        </li>
+                        <li>
                             <a href="#renderMenu" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>renderMenu</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
                         </li>
                         <li>
                             <a href="#schema" title="src/lib/schema.ts"><b>schema</b>&nbsp;&nbsp;&nbsp;(src/.../schema.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SELECTED_DROPDOWN_ITEM_CLASSNAME" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>SELECTED_DROPDOWN_ITEM_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SEPERATOR_CLASSNAME" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>SEPERATOR_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
                         </li>
                         <li>
                             <a href="#toggleBlockType" title="src/lib/prosemirror/commands/toggleBlockType.ts"><b>toggleBlockType</b>&nbsp;&nbsp;&nbsp;(src/.../toggleBlockType.ts)</a>
@@ -142,6 +172,372 @@
     </table>
 </section>
 
+    <h3>src/lib/prosemirror/plugins/menu/menu.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ACTIVE_DROPDOWN_ITEM_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            ACTIVE_DROPDOWN_ITEM_CLASSNAME</b>
+                            <a href="#ACTIVE_DROPDOWN_ITEM_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x60;${DROPDWON_ITEM_CLASSNAME}--Active&#x60;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ACTIVE_MENU_ITEM_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            ACTIVE_MENU_ITEM_CLASSNAME</b>
+                            <a href="#ACTIVE_MENU_ITEM_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x60;${MENU_ITEM_CLASSNAME}--Active&#x60;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DISABLED_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            DISABLED_CLASSNAME</b>
+                            <a href="#DISABLED_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;NgxEditor--Disabled&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DROPDOWN_ITEMS"></a>
+                        <span class="name">
+                            <b>
+                            DROPDOWN_ITEMS</b>
+                            <a href="#DROPDOWN_ITEMS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map()</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DROPDWON_ITEM_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            DROPDWON_ITEM_CLASSNAME</b>
+                            <a href="#DROPDWON_ITEM_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;NgxEditor__Dropdown&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DROPWDOWN_OPEN_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            DROPWDOWN_OPEN_CLASSNAME</b>
+                            <a href="#DROPWDOWN_OPEN_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x60;${DROPDWON_ITEM_CLASSNAME}--Open&#x60;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getSeperatorDom"></a>
+                        <span class="name">
+                            <b>
+                            getSeperatorDom</b>
+                            <a href="#getSeperatorDom"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(): HTMLElement &#x3D;&gt; {
+  const div &#x3D; document.createElement(&#x27;div&#x27;);
+  div.className &#x3D; SEPERATOR_CLASSNAME;
+  return div;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isListItem"></a>
+                        <span class="name">
+                            <b>
+                            isListItem</b>
+                            <a href="#isListItem"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(type: NodeType, schema: Schema) &#x3D;&gt; {
+  return (
+    type &#x3D;&#x3D;&#x3D; schema.nodes.list_item ||
+    type &#x3D;&#x3D;&#x3D; schema.nodes.ordered_list ||
+    type &#x3D;&#x3D;&#x3D; schema.nodes.bullet_list
+  );
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="MENU_ITEM_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            MENU_ITEM_CLASSNAME</b>
+                            <a href="#MENU_ITEM_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;NgxEditor__MenuItem&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="renderMenu"></a>
+                        <span class="name">
+                            <b>
+                            renderMenu</b>
+                            <a href="#renderMenu"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(options: MenuOptions, editorView: EditorView, menuDom: HTMLElement) &#x3D;&gt; {
+  const updates: any[] &#x3D; [];
+
+  const toolbar &#x3D; options.toolbar;
+
+  toolbar.forEach((group: ToolbarItem[], toolbarIndex: number): void &#x3D;&gt; {
+    const isLastMenuGroup &#x3D; toolbar.length - 1 &#x3D;&#x3D;&#x3D; toolbarIndex;
+
+    group.forEach((toolbarItem: ToolbarItem, menuIndex: number): void &#x3D;&gt; {
+      const isLastMenuItem &#x3D; group.length - 1 &#x3D;&#x3D;&#x3D; menuIndex;
+
+      // render dropdown
+      if (typeof toolbarItem &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+        Object.keys(toolbarItem).forEach((dropdownGroup: ToolbarDropdownGroupKeys) &#x3D;&gt; {
+          if (DROPDOWN_ITEMS.has(dropdownGroup)) {
+            const dropdown: ToolbarDropdownGroupValues &#x3D; toolbarItem[dropdownGroup];
+
+            const dropdownView &#x3D; new DropDownView(dropdownGroup, dropdown, editorView, options);
+            const rendered &#x3D; dropdownView.render();
+            updates.push(rendered.updates);
+            menuDom.appendChild(rendered.dom);
+          } else {
+            console.warn(&#x27;Unkown dropdown group:&#x27;, dropdownGroup);
+          }
+        });
+      }
+
+      // render Icons
+      if (typeof toolbarItem &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+        const menuItem &#x3D; menuItemsMeta[toolbarItem];
+
+        const labels &#x3D; options.labels;
+
+        if (menuItem) {
+          const spec: MenuItemViewSpec &#x3D; {
+            classNames: [
+              MENU_ITEM_CLASSNAME,
+              &#x60;${MENU_ITEM_CLASSNAME}--Icon&#x60;,
+            ],
+            innerHTML: getIconSvg(menuItem.icon),
+            attrs: {
+              title: labels[menuItem.i18nKey]
+            },
+            activeClass: ACTIVE_MENU_ITEM_CLASSNAME,
+            disabledClass: DISABLED_CLASSNAME
+          };
+
+          const menuItemView &#x3D; new MenuItemView(menuItem, editorView, spec);
+          const { update, dom } &#x3D; menuItemView.render();
+
+          menuDom.appendChild(dom);
+          updates.push(update);
+        }
+      }
+
+      if (typeof toolbarItem &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
+        const { dom, update } &#x3D; toolbarItem(editorView);
+        menuDom.appendChild(dom);
+        updates.push(update);
+      }
+
+      if (isLastMenuItem &amp;&amp; !isLastMenuGroup) {
+        const seperatorDom &#x3D; getSeperatorDom();
+        menuDom.appendChild(seperatorDom);
+      }
+    });
+  });
+
+  const combinedUpdates &#x3D; flatDeep(updates, Infinity);
+
+  return {
+    update(state: EditorState) {
+      combinedUpdates.forEach((update: (state: EditorState) &#x3D;&gt; void) &#x3D;&gt; {
+        update(state);
+      });
+    }
+  };
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SELECTED_DROPDOWN_ITEM_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            SELECTED_DROPDOWN_ITEM_CLASSNAME</b>
+                            <a href="#SELECTED_DROPDOWN_ITEM_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x60;${DROPDWON_ITEM_CLASSNAME}--Selected&#x60;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SEPERATOR_CLASSNAME"></a>
+                        <span class="name">
+                            <b>
+                            SEPERATOR_CLASSNAME</b>
+                            <a href="#SEPERATOR_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;NgxEditor__Seperator&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
     <h3>src/lib/schema.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -217,6 +613,27 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="marks"></a>
+                        <span class="name">
+                            <b>
+                            marks</b>
+                            <a href="#marks"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>schemaBasic.marks</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="nodes"></a>
                         <span class="name">
                             <b>
@@ -278,7 +695,7 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>new Schema({
-  marks: schemaBasic.marks,
+  marks,
   nodes
 })</code>
                         </td>
@@ -369,8 +786,7 @@
   italic,
   code,
   ordered_list: orderedList,
-  bullet_list: bulletList,
-  arrow_drop_down: arrowDropDown
+  bullet_list: bulletList
 }</code>
                         </td>
                     </tr>
@@ -530,91 +946,15 @@
 
             </tbody>
         </table>
-</section>
-    <h3>src/lib/prosemirror/plugins/menu/menu.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="DROPDOWN_ITEMS"></a>
-                        <span class="name">
-                            <b>
-                            DROPDOWN_ITEMS</b>
-                            <a href="#DROPDOWN_ITEMS"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new Map()</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="getSeperatorDom"></a>
+                        <a name="PLACEHOLDER_CLASSNAME"></a>
                         <span class="name">
                             <b>
-                            getSeperatorDom</b>
-                            <a href="#getSeperatorDom"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(): HTMLElement &#x3D;&gt; {
-  const div &#x3D; document.createElement(&#x27;div&#x27;);
-  div.className &#x3D; &#x60;${MENU_ITEM_CLASSNAME}__Seperator&#x60;;
-  return div;
-}</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="isListItem"></a>
-                        <span class="name">
-                            <b>
-                            isListItem</b>
-                            <a href="#isListItem"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(type: NodeType) &#x3D;&gt; {
-  return (
-    type &#x3D;&#x3D;&#x3D; schema.nodes.list_item ||
-    type &#x3D;&#x3D;&#x3D; schema.nodes.ordered_list ||
-    type &#x3D;&#x3D;&#x3D; schema.nodes.bullet_list
-  );
-}</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="MENU_ITEM_CLASSNAME"></a>
-                        <span class="name">
-                            <b>
-                            MENU_ITEM_CLASSNAME</b>
-                            <a href="#MENU_ITEM_CLASSNAME"><span class="icon ion-ios-link"></span></a>
+                            PLACEHOLDER_CLASSNAME</b>
+                            <a href="#PLACEHOLDER_CLASSNAME"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -626,97 +966,40 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;NgxEditor-MenuItem&#x27;</code>
+                            <i>Default value : </i><code>&#x27;NgxEditor__Placeholder&#x27;</code>
                         </td>
                     </tr>
 
 
             </tbody>
         </table>
-        <table class="table table-sm table-bordered">
+</section>
+    <h3>src/lib/ngx-editor.service.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="renderMenu"></a>
+                        <a name="defaultConfig"></a>
                         <span class="name">
                             <b>
-                            renderMenu</b>
-                            <a href="#renderMenu"><span class="icon ion-ios-link"></span></a>
+                            defaultConfig</b>
+                            <a href="#defaultConfig"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>(options: MenuOptions, editorView: EditorView, menuDom: HTMLElement) &#x3D;&gt; {
-  const updates: any[] &#x3D; [];
+                            <i>Type : </i>        <code><a href="../interfaces/NgxEditorConfig.html" target="_self" >NgxEditorConfig</a></code>
 
-  const toolbar &#x3D; options.toolbar;
-
-  toolbar.forEach((group: ToolbarItem[], toolbarIndex: number): void &#x3D;&gt; {
-    const isLastMenuGroup &#x3D; toolbar.length - 1 &#x3D;&#x3D;&#x3D; toolbarIndex;
-
-    group.forEach((toolbarItem: ToolbarItem, menuIndex: number): void &#x3D;&gt; {
-      const isLastMenuItem &#x3D; group.length - 1 &#x3D;&#x3D;&#x3D; menuIndex;
-
-      // render dropdown
-      if (typeof toolbarItem &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
-        Object.keys(toolbarItem).forEach((dropdownGroup: ToolbarDropdownGroupKeys) &#x3D;&gt; {
-          if (DROPDOWN_ITEMS.has(dropdownGroup)) {
-            const dropdown: ToolbarDropdownGroupValues &#x3D; toolbarItem[dropdownGroup];
-
-            const dropdownView &#x3D; new DropDownView(dropdownGroup, dropdown, editorView, options);
-            const rendered &#x3D; dropdownView.render();
-            updates.push(rendered.updates);
-            menuDom.appendChild(rendered.dom);
-          } else {
-            console.warn(&#x27;Unkown dropdown group:&#x27;, dropdownGroup);
-          }
-        });
-      }
-
-      // render Icons
-      if (typeof toolbarItem &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
-        const menuItem &#x3D; menuItemsMeta[toolbarItem];
-
-        const labels &#x3D; options.labels;
-
-        if (menuItem) {
-          const spec: MenuItemViewSpec &#x3D; {
-            classNames: [
-              MENU_ITEM_CLASSNAME,
-              &#x60;${MENU_ITEM_CLASSNAME}__Icon&#x60;,
-              &#x60;${MENU_ITEM_CLASSNAME}__${menuItem.key}&#x60;
-            ],
-            innerHTML: getIconSvg(menuItem.icon),
-            attrs: {
-              title: labels[menuItem.i18nKey]
-            }
-          };
-
-          const menuItemView &#x3D; new MenuItemView(menuItem, editorView, spec);
-          const { update, dom } &#x3D; menuItemView.render();
-
-          menuDom.appendChild(dom);
-          updates.push(update);
-        }
-      }
-
-      if (isLastMenuItem &amp;&amp; !isLastMenuGroup) {
-        const seperatorDom &#x3D; getSeperatorDom();
-        menuDom.appendChild(seperatorDom);
-      }
-    });
-  });
-
-  const combinedUpdates &#x3D; flatDeep(updates, Infinity);
-
-  return {
-    update(state: EditorState) {
-      combinedUpdates.forEach((update: (state: EditorState) &#x3D;&gt; void) &#x3D;&gt; {
-        update(state);
-      });
-    }
-  };
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  plugins: [],
+  nodeViews: {},
+  schema
 }</code>
                         </td>
                     </tr>

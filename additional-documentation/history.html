@@ -48,31 +48,24 @@
 
 
 
-<h1 id="configuration">Configuration</h1>
-<div><pre class="line-numbers"><code class="language-ts">import { menu, placeholder, schema } from &#39;ngx-editor&#39;;
+<h1 id="enable-history-support-in-the-editor">Enable history support in the editor</h1>
+<p>Reference</p>
+<ul>
+<li><a href="https://prosemirror.net/docs/ref/#history">https://prosemirror.net/docs/ref/#history</a></li>
+<li><a href="https://prosemirror.net/docs/ref/#keymap">https://prosemirror.net/docs/ref/#keymap</a></li>
+</ul>
+<div><pre class="line-numbers"><code class="language-ts">import { undo, redo, history } from &#39;prosemirror-history&#39;;
+import { keymap } from &#39;prosemirror-keymap&#39;;
 
 NgxEditorModule.forRoot({
-  schema, // optional scheama, see https://sibiraj.dev/ngx-editor/additional-documentation/schema.html
   plugins: [
-    menu({
-      // default options (Optional)
-      toolbar: [
-        [&#39;bold&#39;, &#39;italic&#39;, &#39;code&#39;], // inline icons
-        [&#39;ordered_list&#39;, &#39;bullet_list&#39;],
-        [{ heading: [&#39;h1&#39;, &#39;h2&#39;, &#39;h3&#39;, &#39;h4&#39;, &#39;h5&#39;, &#39;h6&#39;] }] // dropdown
-      ],
-      labels: {
-        bold: &#39;Bold&#39;,
-        italics: &#39;Italics&#39;,
-        code: &#39;Code&#39;,
-        ordered_list: &#39;Ordered List&#39;,
-        bullet_list: &#39;Bullet List&#39;,
-        heading: &#39;Heading&#39;
-      }
-    }),
-    placholder(&#39;Type something here...&#39;)
-  ],
-  nodeViews: {} // optional, for example see https://prosemirror.net/examples/footnote/
+    history(), // enable history support
+    keymap({
+      // configure shortcuts
+      &#39;Mod-z&#39;: undo,
+      &#39;Shift-Mod-z&#39;: redo
+    })
+  ]
 });</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
@@ -91,7 +84,7 @@ NgxEditorModule.forRoot({
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
-            var COMPODOC_CURRENT_PAGE_URL = 'configuration.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'history.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

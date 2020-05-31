@@ -123,7 +123,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="190" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:190</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="189" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:189</a></div>
                             </td>
                         </tr>
 
@@ -210,7 +210,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="190" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:190</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="189" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:189</a></div>
                             </td>
                         </tr>
 
@@ -246,8 +246,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="225"
-                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:225</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="230"
+                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:230</a></div>
                 </td>
             </tr>
 
@@ -285,8 +285,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="198"
-                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:198</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="197"
+                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:197</a></div>
                 </td>
             </tr>
 
@@ -315,33 +315,40 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { toggleMark } from &#x27;prosemirror-commands&#x27;;
 import { EditorView } from &#x27;prosemirror-view&#x27;;
 import { EditorState } from &#x27;prosemirror-state&#x27;;
-import { MarkType, NodeType } from &#x27;prosemirror-model&#x27;;
+import { MarkType, NodeType, Schema } from &#x27;prosemirror-model&#x27;;
 
 import {
   MenuItemViewSpec,
   ToolbarItem,
   ToolbarDropdownGroupKeys,
   ToolbarDropdownGroupValues,
-  MenuOptions
+  MenuOptions,
+  Command
 } from &#x27;../../../types&#x27;;
 
-import schema from &#x27;../../../schema&#x27;;
-
-import isNodeActive from &#x27;../../helpers/isNodeActive&#x27;;
-import isMarkActive from &#x27;../../helpers/isMarkActive&#x27;;
+import { isNodeActive, isMarkActive } from &#x27;../../helpers&#x27;;
 import { toggleList, toggleBlockType } from &#x27;../../commands&#x27;;
 
 import { getIconSvg } from &#x27;../../../utils/icons&#x27;;
 import flatDeep from &#x27;../../../utils/flatDeep&#x27;;
 
-import menuItemsMeta, {MenuItemMeta} from &#x27;./meta&#x27;;
+import menuItemsMeta, { MenuItemMeta } from &#x27;./meta&#x27;;
 
-const MENU_ITEM_CLASSNAME &#x3D; &#x27;NgxEditor-MenuItem&#x27;;
+const SEPERATOR_CLASSNAME &#x3D; &#x27;NgxEditor__Seperator&#x27;;
+
+const MENU_ITEM_CLASSNAME &#x3D; &#x27;NgxEditor__MenuItem&#x27;;
+const ACTIVE_MENU_ITEM_CLASSNAME &#x3D; &#x60;${MENU_ITEM_CLASSNAME}--Active&#x60;;
+const DISABLED_CLASSNAME &#x3D; &#x27;NgxEditor--Disabled&#x27;;
+
+const DROPDWON_ITEM_CLASSNAME &#x3D; &#x27;NgxEditor__Dropdown&#x27;;
+const DROPWDOWN_OPEN_CLASSNAME &#x3D; &#x60;${DROPDWON_ITEM_CLASSNAME}--Open&#x60;;
+const ACTIVE_DROPDOWN_ITEM_CLASSNAME &#x3D; &#x60;${DROPDWON_ITEM_CLASSNAME}--Active&#x60;;
+const SELECTED_DROPDOWN_ITEM_CLASSNAME &#x3D; &#x60;${DROPDWON_ITEM_CLASSNAME}--Selected&#x60;;
 
 const DROPDOWN_ITEMS &#x3D; new Map();
 DROPDOWN_ITEMS.set(&#x27;heading&#x27;, [&#x27;h1&#x27;, &#x27;h2&#x27;, &#x27;h3&#x27;, &#x27;h4&#x27;, &#x27;h5&#x27;, &#x27;h6&#x27;]);
 
-const isListItem &#x3D; (type: NodeType) &#x3D;&gt; {
+const isListItem &#x3D; (type: NodeType, schema: Schema) &#x3D;&gt; {
   return (
     type &#x3D;&#x3D;&#x3D; schema.nodes.list_item ||
     type &#x3D;&#x3D;&#x3D; schema.nodes.ordered_list ||
@@ -373,45 +380,43 @@ class DropDownView {
 
   getWrapperDom(): HTMLElement {
     let isDropdownOpen &#x3D; false;
-    const dropdownWrapper &#x3D; document.createElement(&#x27;div&#x27;);
+    const dropdown &#x3D; document.createElement(&#x27;div&#x27;);
 
     const labels &#x3D; this.options.labels;
 
-    dropdownWrapper.classList.add(MENU_ITEM_CLASSNAME);
-    dropdownWrapper.classList.add(&#x60;${MENU_ITEM_CLASSNAME}__Dropdown-Wrapper&#x60;);
-
-    // create dropdown content
-    const dropdown &#x3D; document.createElement(&#x27;div&#x27;);
-    dropdown.classList.add(&#x60;${MENU_ITEM_CLASSNAME}__Dropdown&#x60;);
+    dropdown.classList.add(DROPDWON_ITEM_CLASSNAME);
 
     const dropdownText &#x3D; document.createElement(&#x27;div&#x27;);
-    dropdownText.classList.add(&#x60;${MENU_ITEM_CLASSNAME}__Dropdown-Text&#x60;);
+    dropdownText.classList.add(&#x60;${DROPDWON_ITEM_CLASSNAME}__Text&#x60;);
     dropdownText.textContent &#x3D; labels[this.dropdownGroup];
 
-    const dropdownIcon &#x3D; document.createElement(&#x27;div&#x27;);
-    dropdownIcon.classList.add(&#x60;${MENU_ITEM_CLASSNAME}__Dropdown-Icon&#x60;);
-    dropdownIcon.innerHTML &#x3D; getIconSvg(&#x27;arrow_drop_down&#x27;);
-
     dropdown.appendChild(dropdownText);
-    dropdown.appendChild(dropdownIcon);
 
-    const dropdownOpenClassName &#x3D; &#x60;${MENU_ITEM_CLASSNAME}__Dropdown-Wrapper-Open&#x60;;
+    // create dropdown list
+    const dropdownMenu &#x3D; document.createElement(&#x27;div&#x27;);
+    dropdownMenu.classList.add(&#x60;${DROPDWON_ITEM_CLASSNAME}__DropdownMenu&#x60;);
 
     const mouseDownHandler &#x3D; (e: MouseEvent) &#x3D;&gt; {
       e.preventDefault();
-      if (!dropdownWrapper.contains(e.target as Node)) {
+      if (!dropdown.contains(e.target as Node)) {
         closeDropdown();
       }
     };
 
-    const openDropdown &#x3D; () &#x3D;&gt; {
-      dropdownWrapper.classList.add(dropdownOpenClassName);
+    const openDropdown &#x3D; (e: MouseEvent) &#x3D;&gt; {
+      const target &#x3D; e.target as HTMLElement;
+
+      if (dropdownMenu.contains(target)) {
+        return;
+      }
+
+      dropdown.classList.add(DROPWDOWN_OPEN_CLASSNAME);
       isDropdownOpen &#x3D; true;
       window.addEventListener(&#x27;mousedown&#x27;, mouseDownHandler);
     };
 
     const closeDropdown &#x3D; () &#x3D;&gt; {
-      dropdownWrapper.classList.remove(dropdownOpenClassName);
+      dropdown.classList.remove(DROPWDOWN_OPEN_CLASSNAME);
       isDropdownOpen &#x3D; false;
       window.removeEventListener(&#x27;mousedown&#x27;, mouseDownHandler);
     };
@@ -419,15 +424,11 @@ class DropDownView {
     dropdown.addEventListener(&#x27;click&#x27;, (e: MouseEvent) &#x3D;&gt; {
       e.preventDefault();
       if (!isDropdownOpen) {
-        openDropdown();
+        openDropdown(e);
       } else {
         closeDropdown();
       }
     });
-
-    // create dropdown list
-    const dropdownList &#x3D; document.createElement(&#x27;div&#x27;);
-    dropdownList.classList.add(&#x60;${MENU_ITEM_CLASSNAME}__Dropdown-Menu&#x60;);
 
     this.dropdownFields.forEach(dropdownItem &#x3D;&gt; {
       const menuItem &#x3D; menuItemsMeta[dropdownItem];
@@ -440,12 +441,14 @@ class DropDownView {
 
       const spec: MenuItemViewSpec &#x3D; {
         classNames: [
-          &#x60;${MENU_ITEM_CLASSNAME}__Dropdown-Item&#x60;
+          &#x60;${DROPDWON_ITEM_CLASSNAME}__Item&#x60;
         ],
         textContent: text,
         attrs: {
           title: text
-        }
+        },
+        activeClass: ACTIVE_DROPDOWN_ITEM_CLASSNAME,
+        disabledClass: DISABLED_CLASSNAME
       };
 
       const menuItemView &#x3D; new MenuItemView(menuItem, this.editorView, spec);
@@ -461,29 +464,25 @@ class DropDownView {
       const dropUpdate &#x3D; (state: EditorState) &#x3D;&gt; {
         update(state);
 
-        const selectedClass &#x3D; &#x60;${MENU_ITEM_CLASSNAME}__Dropdown-Wrapper-Selected&#x60;;
-
         // update the dropdown content heading when a class is selected
-        const activeEl &#x3D; dropdownList.getElementsByClassName(&#x60;${MENU_ITEM_CLASSNAME}__Active&#x60;);
+        const activeEl &#x3D; dropdownMenu.getElementsByClassName(ACTIVE_DROPDOWN_ITEM_CLASSNAME);
         if (activeEl.length) {
           const el &#x3D; activeEl[0];
           dropdownText.textContent &#x3D; el.textContent;
-          dropdownWrapper.classList.add(selectedClass);
+          dropdown.classList.add(SELECTED_DROPDOWN_ITEM_CLASSNAME);
         } else {
           // restore default value
           dropdownText.textContent &#x3D; labels[this.dropdownGroup];
-          dropdownWrapper.classList.remove(selectedClass);
+          dropdown.classList.remove(SELECTED_DROPDOWN_ITEM_CLASSNAME);
         }
       };
 
-      dropdownList.appendChild(dom);
+      dropdownMenu.appendChild(dom);
       this.updates.push(dropUpdate);
     });
 
-    dropdownWrapper.appendChild(dropdown);
-    dropdownWrapper.appendChild(dropdownList);
-
-    return dropdownWrapper;
+    dropdown.appendChild(dropdownMenu);
+    return dropdown;
   }
 
   render() {
@@ -511,11 +510,16 @@ class MenuItemView {
 
   render() {
     const dom &#x3D; this.dom &#x3D; this.getDom();
-    this.setupCommandListeners();
+    const { schema } &#x3D; this.editorView.state;
+    const { command } &#x3D; this.setupCommandListeners();
+
+    const { activeClass, disabledClass } &#x3D; this.spec;
 
     const update &#x3D; (state: EditorState): void &#x3D;&gt; {
       const menuItem &#x3D; this.menuItem;
       let isActive &#x3D; false;
+
+      const canExecute &#x3D; command(this.editorView.state, null);
 
       if (menuItem.type &#x3D;&#x3D;&#x3D; &#x27;mark&#x27;) {
         const type: MarkType &#x3D; schema.marks[menuItem.key];
@@ -527,7 +531,8 @@ class MenuItemView {
         isActive &#x3D; isNodeActive(state, type, menuItem.attrs);
       }
 
-      dom.classList.toggle(&#x60;${MENU_ITEM_CLASSNAME}__Active&#x60;, isActive);
+      dom.classList.toggle(activeClass, isActive);
+      dom.classList.toggle(disabledClass, !canExecute);
     };
 
     return {
@@ -563,6 +568,26 @@ class MenuItemView {
   }
 
   private setupCommandListeners() {
+    const { schema } &#x3D; this.editorView.state;
+
+    let command: Command;
+
+    if (this.menuItem.type &#x3D;&#x3D;&#x3D; &#x27;mark&#x27;) {
+      command &#x3D; toggleMark(schema.marks[this.menuItem.key]);
+    }
+
+    if (this.menuItem.type &#x3D;&#x3D;&#x3D; &#x27;node&#x27;) {
+      const type &#x3D; schema.nodes[this.menuItem.key];
+
+      if (isListItem(type, schema)) {
+        command &#x3D; toggleList(type, schema.nodes.list_item);
+      }
+
+      if (type &#x3D;&#x3D;&#x3D; schema.nodes.heading) {
+        command &#x3D; toggleBlockType(type, schema.nodes.paragraph, { level: this.menuItem.attrs.level });
+      }
+    }
+
     this.dom.addEventListener(&#x27;mousedown&#x27;, (e: MouseEvent) &#x3D;&gt; {
       e.preventDefault();
 
@@ -571,34 +596,17 @@ class MenuItemView {
         return;
       }
 
-      if (this.menuItem.type &#x3D;&#x3D;&#x3D; &#x27;mark&#x27;) {
-        const command &#x3D; toggleMark(schema.marks[this.menuItem.key]);
-        command(this.editorView.state, this.editorView.dispatch);
-        return;
-      }
-
-      if (this.menuItem.type &#x3D;&#x3D;&#x3D; &#x27;node&#x27;) {
-        const type &#x3D; schema.nodes[this.menuItem.key];
-
-        if (isListItem(type)) {
-          const command &#x3D; toggleList(type, schema.nodes.list_item);
-          command(this.editorView.state, this.editorView.dispatch);
-          return;
-        }
-
-        if (type &#x3D;&#x3D;&#x3D; schema.nodes.heading) {
-          const command &#x3D; toggleBlockType(type, schema.nodes.paragraph, { level: this.menuItem.attrs.level });
-          command(this.editorView.state, this.editorView.dispatch);
-          return;
-        }
-      }
+      // execute command
+      command(this.editorView.state, this.editorView.dispatch);
     });
+
+    return { command };
   }
 }
 
 const getSeperatorDom &#x3D; (): HTMLElement &#x3D;&gt; {
   const div &#x3D; document.createElement(&#x27;div&#x27;);
-  div.className &#x3D; &#x60;${MENU_ITEM_CLASSNAME}__Seperator&#x60;;
+  div.className &#x3D; SEPERATOR_CLASSNAME;
   return div;
 };
 
@@ -639,13 +647,14 @@ export const renderMenu &#x3D; (options: MenuOptions, editorView: EditorView, me
           const spec: MenuItemViewSpec &#x3D; {
             classNames: [
               MENU_ITEM_CLASSNAME,
-              &#x60;${MENU_ITEM_CLASSNAME}__Icon&#x60;,
-              &#x60;${MENU_ITEM_CLASSNAME}__${menuItem.key}&#x60;
+              &#x60;${MENU_ITEM_CLASSNAME}--Icon&#x60;,
             ],
             innerHTML: getIconSvg(menuItem.icon),
             attrs: {
               title: labels[menuItem.i18nKey]
-            }
+            },
+            activeClass: ACTIVE_MENU_ITEM_CLASSNAME,
+            disabledClass: DISABLED_CLASSNAME
           };
 
           const menuItemView &#x3D; new MenuItemView(menuItem, editorView, spec);
@@ -654,6 +663,12 @@ export const renderMenu &#x3D; (options: MenuOptions, editorView: EditorView, me
           menuDom.appendChild(dom);
           updates.push(update);
         }
+      }
+
+      if (typeof toolbarItem &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
+        const { dom, update } &#x3D; toolbarItem(editorView);
+        menuDom.appendChild(dom);
+        updates.push(update);
       }
 
       if (isLastMenuItem &amp;&amp; !isLastMenuGroup) {

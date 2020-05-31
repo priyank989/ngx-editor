@@ -48,64 +48,79 @@
 
 
 
-<h1 id="examples">Examples</h1>
-<h3 id="implement-undoredo-history">Implement undo/redo history</h3>
-<p>Reference</p>
-<ul>
-<li><a href="https://prosemirror.net/docs/ref/#history">https://prosemirror.net/docs/ref/#history</a></li>
-<li><a href="https://prosemirror.net/docs/ref/#keymap">https://prosemirror.net/docs/ref/#keymap</a></li>
-</ul>
-<div><pre class="line-numbers"><code class="language-ts">import { undo, redo, history } from &quot;prosemirror-history&quot;;
-import { keymap } from &quot;prosemirror-keymap&quot;;
+<h1 id="menu-plugin">Menu Plugin</h1>
+<p>Configuring the plugin</p>
+<div><pre class="line-numbers"><code class="language-ts">import { menu, placeholder } from &#39;ngx-editor&#39;;
 
 NgxEditorModule.forRoot({
   plugins: [
-    history(), // enable history support
-    keymap({
-      // configure shortcuts
-      &quot;Mod-z&quot;: undo,
-      &quot;Shift-Mod-z&quot;: redo,
-    }),
-  ],
-});</code></pre></div><h3 id="configure-shortcts-to-work-with-list-items">Configure shortcts to work with list items</h3>
-<p>Reference</p>
-<ul>
-<li><a href="https://prosemirror.net/docs/ref/#keymap">https://prosemirror.net/docs/ref/#keymap</a></li>
-<li><a href="https://prosemirror.net/docs/ref/#schema-list">https://prosemirror.net/docs/ref/#schema-list</a></li>
-</ul>
-<div><pre class="line-numbers"><code class="language-ts">import { schema } from &quot;ngx-editor&quot;;
-import { splitListItem, liftListItem, sinkListItem } from &quot;prosemirror-schema-list&quot;;
-import { keymap } from &quot;prosemirror-keymap&quot;;
+    menu({
+      // default options (Optional)
+      toolbar: [
+        [&#39;bold&#39;, &#39;italic&#39;, &#39;code&#39;], // inline icons
+        [&#39;ordered_list&#39;, &#39;bullet_list&#39;],
+        [{ heading: [&#39;h1&#39;, &#39;h2&#39;, &#39;h3&#39;, &#39;h4&#39;, &#39;h5&#39;, &#39;h6&#39;] }], // dropdown
+        [codemirror] // custom menu, example below
+      ],
+      labels: {
+        bold: &#39;Bold&#39;,
+        italics: &#39;Italics&#39;,
+        code: &#39;Code&#39;,
+        ordered_list: &#39;Ordered List&#39;,
+        bullet_list: &#39;Bullet List&#39;,
+        heading: &#39;Heading&#39;
+      }
+    })
+  ]
+});</code></pre></div><h2 id="custom-menu">Custom Menu</h2>
+<p>Custom menu should return an <code>update</code> function (invoked for every transcation) and <code>dom</code> html-element (to mount in the menubar).</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-ts">import { EditorState } from &#39;prosemirror-state&#39;;
+import { isNodeActive, toggleBlockType, ToolbarCustomMenuItem } from &#39;ngx-editor&#39;;
 
-NgxEditorModule.forRoot({
-  plugins: [
-    keymap({
-      Enter: splitListItem(schema.nodes.list_item),
-      &quot;Mod-[&quot;: liftListItem(schema.nodes.list_item),
-      &quot;Mod-]&quot;: sinkListItem(schema.nodes.list_item),
-      Tab: sinkListItem(schema.nodes.list_item),
-    }),
-  ],
-});</code></pre></div><h3 id="shortcuts-to-work-with-makrs">Shortcuts to work with makrs</h3>
-<p>Reference</p>
-<ul>
-<li><a href="https://prosemirror.net/docs/ref/#commands">https://prosemirror.net/docs/ref/#commands</a></li>
-<li><a href="https://prosemirror.net/docs/ref/#keymap">https://prosemirror.net/docs/ref/#keymap</a></li>
-</ul>
-<div><pre class="line-numbers"><code class="language-ts">import { schema } from &quot;ngx-editor&quot;;
-import { keymap } from &quot;prosemirror-keymap&quot;;
-import { toggleMark, baseKeymap } from &quot;prosemirror-commands&quot;;
+import schema from &#39;../../schema&#39;;
 
-NgxEditorModule.forRoot({
-  plugins: [
-    keymap({
-      &quot;Mod-b&quot;: toggleMark(schema.marks.strong), // toggle strong
-      &quot;Mod-i&quot;: toggleMark(schema.marks.em), // toggle italics
-      &quot;Mod-`&quot;: toggleMark(schema.marks.code), // toggle code
-    }),
-    keymap(baseKeymap),
-  ],
-});</code></pre></div>
+const codeMirror: ToolbarCustomMenuItem = (editorView) =&gt; {
+  const dom: HTMLElement = document.createElement(&#39;div&#39;);
+  dom.innerHTML = &#39;CodeMirror&#39;;
+
+  dom.classList.add(&#39;NgxEditor__MenuItem&#39;);
+  dom.classList.add(&#39;NgxEditor__MenuItem--Text&#39;);
+
+  // you must add `code_block` to schema first
+  // see https://prosemirror.net/examples/schema/
+  // https://sibiraj.dev/ngx-editor/additional-documentation/schema.html
+  const type = schema.nodes.code_block;
+
+  const command = toggleBlockType(type, schema.nodes.paragraph);
+
+  dom.addEventListener(&#39;mousedown&#39;, (e: MouseEvent) =&gt; {
+    e.preventDefault();
+
+    // don&#39;t execute if not left click
+    if (e.buttons !== 1) {
+      return;
+    }
+
+    command(editorView.state, editorView.dispatch);
+  });
+
+  const update = (state: EditorState): void =&gt; {
+    const isActive = isNodeActive(state, type);
+
+    const canExecute = command(state, null);
+
+    dom.classList.toggle(`NgxEditor__MenuItem--Active`, isActive);
+    dom.classList.toggle(`NgxEditor--Disabled`, !canExecute);
+  };
+
+  return {
+    dom,
+    update
+  };
+};
+
+export default codeMirror;</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
@@ -123,7 +138,7 @@ NgxEditorModule.forRoot({
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'additional-page';
-            var COMPODOC_CURRENT_PAGE_URL = 'examples.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'menu-plugin.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

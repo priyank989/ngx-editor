@@ -76,7 +76,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#nodeViews">nodeViews</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#plugins">plugins</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#schema">schema</a>
                             </li>
                         </ul>
                     </td>
@@ -102,6 +110,39 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="nodeViews"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            nodeViews</b>
+                            <a href="#nodeViews"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/NodeViews.html" target="_self" >NodeViews</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/lib/ngx-editor.service.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="plugins"></a>
                         <span class="name">
                             <b>
@@ -113,7 +154,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>[]</code>
+                            <i>Type : </i>    <code>Plugin[]</code>
 
                         </td>
                     </tr>
@@ -127,7 +168,40 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/lib/ngx-editor.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/lib/ngx-editor.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="schema"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            schema</b>
+                            <a href="#schema"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Schema</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>schema</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/lib/ngx-editor.service.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -142,24 +216,33 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Optional } from &#x27;@angular/core&#x27;;
 
-import { NgxEditorConfig } from &#x27;./types&#x27;;
+import { Schema } from &#x27;prosemirror-model&#x27;;
+import { Plugin } from &#x27;prosemirror-state&#x27;;
+
+import { NgxEditorConfig, NodeViews } from &#x27;./types&#x27;;
 
 import menu from &#x27;./prosemirror/plugins/menu&#x27;;
 import placeholder from &#x27;./prosemirror/plugins/placeholder&#x27;;
+import { schema } from &#x27;./schema&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
 export class NgxEditorServiceConfig {
-  public plugins &#x3D; [
+  public plugins: Plugin[] &#x3D; [
     menu(),
     placeholder()
   ];
+
+  public nodeViews: NodeViews &#x3D; {};
+  public schema: Schema &#x3D; schema;
 }
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
 export class NgxEditorService {
   config: NgxEditorServiceConfig;
 
@@ -168,8 +251,14 @@ export class NgxEditorService {
   }
 }
 
+const defaultConfig: NgxEditorConfig &#x3D; {
+  plugins: [],
+  nodeViews: {},
+  schema
+};
+
 export function provideMyServiceOptions(config?: NgxEditorConfig): NgxEditorConfig {
-  return (config);
+  return Object.assign({}, defaultConfig, config);
 }
 </code></pre>
     </div>
