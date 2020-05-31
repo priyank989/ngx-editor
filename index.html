@@ -70,7 +70,33 @@ yarn add ngx-editor</code></pre></div><h3 id="usage">Usage</h3>
 
 export class AppModule {}</code></pre></div><p>Then in HTML</p>
 <div><pre class="line-numbers"><code class="language-html">&lt;ngx-editor [ngModel]=&quot;jsonDoc&quot;&gt;&lt;/ngx-editor&gt;</code></pre></div><p>For <code>ngModel</code> to work, You must import <code>FormsModule</code> from <code>@angular/forms</code></p>
-<h2 id="compatibility">Compatibility</h2>
+<h3 id="configuration">Configuration</h3>
+<div><pre class="line-numbers"><code class="language-ts">import { menu, placeholder, schema } from &#39;ngx-editor&#39;;
+
+NgxEditorModule.forRoot({
+  schema, // optional scheama, see https://sibiraj.dev/ngx-editor/additional-documentation/schema.html
+  plugins: [
+    menu({
+      // default options (Optional)
+      toolbar: [
+        [&#39;bold&#39;, &#39;italic&#39;, &#39;code&#39;], // inline icons
+        [&#39;ordered_list&#39;, &#39;bullet_list&#39;],
+        [{ heading: [&#39;h1&#39;, &#39;h2&#39;, &#39;h3&#39;, &#39;h4&#39;, &#39;h5&#39;, &#39;h6&#39;] }] // dropdown
+        [codemirror] // custom menu, see https://sibiraj.dev/ngx-editor/additional-documentation/menu-plugin.html
+      ],
+      labels: {
+        bold: &#39;Bold&#39;,
+        italics: &#39;Italics&#39;,
+        code: &#39;Code&#39;,
+        ordered_list: &#39;Ordered List&#39;,
+        bullet_list: &#39;Bullet List&#39;,
+        heading: &#39;Heading&#39;
+      }
+    }),
+    placholder(&#39;Type something here...&#39;)
+  ],
+  nodeViews: {} // optional, see https://prosemirror.net/examples/footnote/
+});</code></pre></div><h2 id="compatibility">Compatibility</h2>
 <p>All Evergreen-Browsers are supported</p>
 <ul>
 <li>Google Chrome</li>
