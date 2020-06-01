@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -225,7 +225,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -257,7 +257,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -293,8 +293,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:60</a></div>
                 </td>
             </tr>
 
@@ -332,8 +332,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">src/lib/prosemirror/plugins/menu/menu.ts:167</a></div>
                 </td>
             </tr>
 
@@ -373,7 +373,7 @@ import {
   Command
 } from &#x27;../../../types&#x27;;
 
-import { isNodeActive, isMarkActive } from &#x27;../../helpers&#x27;;
+import { isNodeActive, isMarkActive, isListItem, isListItemActive } from &#x27;../../helpers&#x27;;
 import { toggleList, toggleBlockType } from &#x27;../../commands&#x27;;
 
 import { getIconSvg } from &#x27;../../../utils/icons&#x27;;
@@ -395,13 +395,6 @@ const SELECTED_DROPDOWN_ITEM_CLASSNAME &#x3D; &#x60;${DROPDWON_ITEM_CLASSNAME}--
 const DROPDOWN_ITEMS &#x3D; new Map();
 DROPDOWN_ITEMS.set(&#x27;heading&#x27;, [&#x27;h1&#x27;, &#x27;h2&#x27;, &#x27;h3&#x27;, &#x27;h4&#x27;, &#x27;h5&#x27;, &#x27;h6&#x27;]);
 
-const isListItem &#x3D; (type: NodeType, schema: Schema) &#x3D;&gt; {
-  return (
-    type &#x3D;&#x3D;&#x3D; schema.nodes.list_item ||
-    type &#x3D;&#x3D;&#x3D; schema.nodes.ordered_list ||
-    type &#x3D;&#x3D;&#x3D; schema.nodes.bullet_list
-  );
-};
 
 class DropDownView {
   private dropdownGroup: ToolbarDropdownGroupKeys;
@@ -566,6 +559,8 @@ class MenuItemView {
       const menuItem &#x3D; this.menuItem;
       let isActive &#x3D; false;
 
+      const one &#x3D; 1;
+
       const canExecute &#x3D; command(this.editorView.state, null);
 
       if (menuItem.type &#x3D;&#x3D;&#x3D; &#x27;mark&#x27;) {
@@ -575,7 +570,12 @@ class MenuItemView {
 
       if (menuItem.type &#x3D;&#x3D;&#x3D; &#x27;node&#x27;) {
         const type: NodeType &#x3D; schema.nodes[menuItem.key];
-        isActive &#x3D; isNodeActive(state, type, menuItem.attrs);
+
+        if (isListItem(type, schema)) {
+          isActive &#x3D; isListItemActive(state, type);
+        } else {
+          isActive &#x3D; isNodeActive(state, type, menuItem.attrs);
+        }
       }
 
       dom.classList.toggle(activeClass, isActive);

@@ -83,6 +83,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <li class="link ">
                                         <a href="additional-documentation/inline-code-editor.html" data-type="entity-link" data-context-id="additional">Inline Code Editor</a>
                                     </li>
+                                    <li class="link ">
+                                        <a href="additional-documentation/input-rules.html" data-type="entity-link" data-context-id="additional">Input Rules</a>
+                                    </li>
                         </ul>
                     </li>
                     <li class="chapter modules">

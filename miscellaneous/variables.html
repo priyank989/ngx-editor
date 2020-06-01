@@ -109,7 +109,10 @@
                             <a href="#icons" title="src/lib/utils/icons/index.ts"><b>icons</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
-                            <a href="#isListItem" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>isListItem</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
+                            <a href="#isListItem" title="src/lib/prosemirror/helpers/isListItem.ts"><b>isListItem</b>&nbsp;&nbsp;&nbsp;(src/.../isListItem.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isListItemActive" title="src/lib/prosemirror/helpers/isListItemActive.ts"><b>isListItemActive</b>&nbsp;&nbsp;&nbsp;(src/.../isListItemActive.ts)</a>
                         </li>
                         <li>
                             <a href="#isMarkActive" title="src/lib/prosemirror/helpers/isMarkActive.ts"><b>isMarkActive</b>&nbsp;&nbsp;&nbsp;(src/.../isMarkActive.ts)</a>
@@ -330,33 +333,6 @@
   const div &#x3D; document.createElement(&#x27;div&#x27;);
   div.className &#x3D; SEPERATOR_CLASSNAME;
   return div;
-}</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="isListItem"></a>
-                        <span class="name">
-                            <b>
-                            isListItem</b>
-                            <a href="#isListItem"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(type: NodeType, schema: Schema) &#x3D;&gt; {
-  return (
-    type &#x3D;&#x3D;&#x3D; schema.nodes.list_item ||
-    type &#x3D;&#x3D;&#x3D; schema.nodes.ordered_list ||
-    type &#x3D;&#x3D;&#x3D; schema.nodes.bullet_list
-  );
 }</code>
                         </td>
                     </tr>
@@ -1036,6 +1012,71 @@
             </tbody>
         </table>
 </section>
+    <h3>src/lib/prosemirror/helpers/isListItem.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isListItem"></a>
+                        <span class="name">
+                            <b>
+                            isListItem</b>
+                            <a href="#isListItem"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(type: NodeType, schema: Schema) &#x3D;&gt; {
+  return (
+    type &#x3D;&#x3D;&#x3D; schema.nodes.list_item ||
+    type &#x3D;&#x3D;&#x3D; schema.nodes.ordered_list ||
+    type &#x3D;&#x3D;&#x3D; schema.nodes.bullet_list
+  );
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/lib/prosemirror/helpers/isListItemActive.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isListItemActive"></a>
+                        <span class="name">
+                            <b>
+                            isListItemActive</b>
+                            <a href="#isListItemActive"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(state: EditorState, type: NodeType, ): boolean &#x3D;&gt; {
+  const { $from, $to } &#x3D; state.selection;
+  const range &#x3D; $from.blockRange($to, node &#x3D;&gt; {
+    return node.childCount &amp;&amp; isListItem(node.firstChild.type, state.schema);
+  });
+
+  if (!range) {
+    return false;
+  }
+
+  return $from.node(range.depth).type &#x3D;&#x3D;&#x3D; type;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
     <h3>src/lib/prosemirror/helpers/isMarkActive.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -1086,15 +1127,6 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>(state: EditorState, type: NodeType, attrs &#x3D; {}): boolean &#x3D;&gt; {
   const { $from, to } &#x3D; state.selection;
-
-  const predicate &#x3D; (n: ProsemirrorNode) &#x3D;&gt; n.type &#x3D;&#x3D;&#x3D; type;
-  const node &#x3D; findSelectedNodeOfType(type)(state.selection) || findParentNode(predicate)(state.selection);
-
-  if (!Object.entries(attrs).length || !node) {
-    return !!node;
-  }
-
-  // check if heading is active
   return to &lt;&#x3D; $from.end() &amp;&amp; $from.parent.hasMarkup(type, attrs);
 }</code>
                         </td>
@@ -1289,7 +1321,7 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>(type: NodeType, itemType: NodeType) &#x3D;&gt; {
   return (state: EditorState, dispatch: (tr: Transaction) &#x3D;&gt; void) &#x3D;&gt; {
-    const isActive &#x3D; isNodeActive(state, type);
+    const isActive &#x3D; isListItemActive(state, type);
 
     if (isActive) {
       return liftListItem(itemType)(state, dispatch);
