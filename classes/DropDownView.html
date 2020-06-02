@@ -359,10 +359,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { toggleMark } from &#x27;prosemirror-commands&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { toggleMark, wrapIn } from &#x27;prosemirror-commands&#x27;;
 import { EditorView } from &#x27;prosemirror-view&#x27;;
 import { EditorState } from &#x27;prosemirror-state&#x27;;
-import { MarkType, NodeType, Schema } from &#x27;prosemirror-model&#x27;;
+import { MarkType, NodeType } from &#x27;prosemirror-model&#x27;;
 
 import {
   MenuItemViewSpec,
@@ -373,8 +373,8 @@ import {
   Command
 } from &#x27;../../../types&#x27;;
 
-import { isNodeActive, isMarkActive, isListItem, isListItemActive } from &#x27;../../helpers&#x27;;
-import { toggleList, toggleBlockType } from &#x27;../../commands&#x27;;
+import { isNodeActive, isMarkActive, isListItem } from &#x27;../../helpers&#x27;;
+import { toggleList, toggleBlockType, toggleWrap } from &#x27;../../commands&#x27;;
 
 import { getIconSvg } from &#x27;../../../utils/icons&#x27;;
 import flatDeep from &#x27;../../../utils/flatDeep&#x27;;
@@ -559,8 +559,6 @@ class MenuItemView {
       const menuItem &#x3D; this.menuItem;
       let isActive &#x3D; false;
 
-      const one &#x3D; 1;
-
       const canExecute &#x3D; command(this.editorView.state, null);
 
       if (menuItem.type &#x3D;&#x3D;&#x3D; &#x27;mark&#x27;) {
@@ -570,12 +568,7 @@ class MenuItemView {
 
       if (menuItem.type &#x3D;&#x3D;&#x3D; &#x27;node&#x27;) {
         const type: NodeType &#x3D; schema.nodes[menuItem.key];
-
-        if (isListItem(type, schema)) {
-          isActive &#x3D; isListItemActive(state, type);
-        } else {
-          isActive &#x3D; isNodeActive(state, type, menuItem.attrs);
-        }
+        isActive &#x3D; isNodeActive(state, type, menuItem.attrs);
       }
 
       dom.classList.toggle(activeClass, isActive);
@@ -632,6 +625,10 @@ class MenuItemView {
 
       if (type &#x3D;&#x3D;&#x3D; schema.nodes.heading) {
         command &#x3D; toggleBlockType(type, schema.nodes.paragraph, { level: this.menuItem.attrs.level });
+      }
+
+      if (type &#x3D;&#x3D;&#x3D; schema.nodes.blockquote) {
+        command &#x3D; toggleWrap(type);
       }
     }
 

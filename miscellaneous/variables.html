@@ -100,6 +100,9 @@
                             <a href="#DROPWDOWN_OPEN_CLASSNAME" title="src/lib/prosemirror/plugins/menu/menu.ts"><b>DROPWDOWN_OPEN_CLASSNAME</b>&nbsp;&nbsp;&nbsp;(src/.../menu.ts)</a>
                         </li>
                         <li>
+                            <a href="#findNodeType" title="src/lib/prosemirror/helpers/isNodeActive.ts"><b>findNodeType</b>&nbsp;&nbsp;&nbsp;(src/.../isNodeActive.ts)</a>
+                        </li>
+                        <li>
                             <a href="#flatDeep" title="src/lib/utils/flatDeep.ts"><b>flatDeep</b>&nbsp;&nbsp;&nbsp;(src/.../flatDeep.ts)</a>
                         </li>
                         <li>
@@ -110,9 +113,6 @@
                         </li>
                         <li>
                             <a href="#isListItem" title="src/lib/prosemirror/helpers/isListItem.ts"><b>isListItem</b>&nbsp;&nbsp;&nbsp;(src/.../isListItem.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#isListItemActive" title="src/lib/prosemirror/helpers/isListItemActive.ts"><b>isListItemActive</b>&nbsp;&nbsp;&nbsp;(src/.../isListItemActive.ts)</a>
                         </li>
                         <li>
                             <a href="#isMarkActive" title="src/lib/prosemirror/helpers/isMarkActive.ts"><b>isMarkActive</b>&nbsp;&nbsp;&nbsp;(src/.../isMarkActive.ts)</a>
@@ -167,6 +167,9 @@
                         </li>
                         <li>
                             <a href="#toggleList" title="src/lib/prosemirror/commands/toggleList.ts"><b>toggleList</b>&nbsp;&nbsp;&nbsp;(src/.../toggleList.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#toggleWrap" title="src/lib/prosemirror/commands/toggleWrap.ts"><b>toggleWrap</b>&nbsp;&nbsp;&nbsp;(src/.../toggleWrap.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -762,7 +765,8 @@
   italic,
   code,
   ordered_list: orderedList,
-  bullet_list: bulletList
+  bullet_list: bulletList,
+  quote
 }</code>
                         </td>
                     </tr>
@@ -799,7 +803,8 @@
   code: &#x27;Code&#x27;,
   ordered_list: &#x27;Ordered List&#x27;,
   bullet_list: &#x27;Bullet List&#x27;,
-  heading: &#x27;Heading&#x27;
+  heading: &#x27;Heading&#x27;,
+  blockquote: &#x27;Quote&#x27;
 }</code>
                         </td>
                     </tr>
@@ -859,7 +864,7 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>[
   [&#x27;bold&#x27;, &#x27;italic&#x27;],
-  [&#x27;code&#x27;],
+  [&#x27;code&#x27;, &#x27;blockquote&#x27;],
   [&#x27;ordered_list&#x27;, &#x27;bullet_list&#x27;],
   [{ heading: [&#x27;h1&#x27;, &#x27;h2&#x27;, &#x27;h3&#x27;, &#x27;h4&#x27;, &#x27;h5&#x27;, &#x27;h6&#x27;] }]
 ]</code>
@@ -984,6 +989,69 @@
             </tbody>
         </table>
 </section>
+    <h3>src/lib/prosemirror/helpers/isNodeActive.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="findNodeType"></a>
+                        <span class="name">
+                            <b>
+                            findNodeType</b>
+                            <a href="#findNodeType"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(type: NodeType, $from: ResolvedPos): NodeType | null &#x3D;&gt; {
+  for (let i &#x3D; $from.depth; i &gt; 0; i--) {
+    if ($from.node(i).type &#x3D;&#x3D;&#x3D; type) {
+      return $from.node(i).type;
+    }
+  }
+
+  return null;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isNodeActive"></a>
+                        <span class="name">
+                            <b>
+                            isNodeActive</b>
+                            <a href="#isNodeActive"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(state: EditorState, type: NodeType, attrs &#x3D; {}): boolean &#x3D;&gt; {
+  const { $from, to } &#x3D; state.selection;
+
+  const node: NodeType &#x3D; findNodeType(type, $from);
+
+  if (!Object.entries(attrs).length || !node) {
+    return !!node;
+  }
+
+  return to &lt;&#x3D; $from.end() &amp;&amp; $from.parent.hasMarkup(type, attrs);
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
     <h3>src/lib/utils/flatDeep.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -1042,41 +1110,6 @@
             </tbody>
         </table>
 </section>
-    <h3>src/lib/prosemirror/helpers/isListItemActive.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="isListItemActive"></a>
-                        <span class="name">
-                            <b>
-                            isListItemActive</b>
-                            <a href="#isListItemActive"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(state: EditorState, type: NodeType, ): boolean &#x3D;&gt; {
-  const { $from, $to } &#x3D; state.selection;
-  const range &#x3D; $from.blockRange($to, node &#x3D;&gt; {
-    return node.childCount &amp;&amp; isListItem(node.firstChild.type, state.schema);
-  });
-
-  if (!range) {
-    return false;
-  }
-
-  return $from.node(range.depth).type &#x3D;&#x3D;&#x3D; type;
-}</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
     <h3>src/lib/prosemirror/helpers/isMarkActive.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -1101,33 +1134,6 @@
   } else {
     return state.doc.rangeHasMark(from, to, type);
   }
-}</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>src/lib/prosemirror/helpers/isNodeActive.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="isNodeActive"></a>
-                        <span class="name">
-                            <b>
-                            isNodeActive</b>
-                            <a href="#isNodeActive"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(state: EditorState, type: NodeType, attrs &#x3D; {}): boolean &#x3D;&gt; {
-  const { $from, to } &#x3D; state.selection;
-  return to &lt;&#x3D; $from.end() &amp;&amp; $from.parent.hasMarkup(type, attrs);
 }</code>
                         </td>
                     </tr>
@@ -1236,6 +1242,12 @@
       level: 6,
     },
     type: &#x27;node&#x27;
+  },
+  blockquote: {
+    key: &#x27;blockquote&#x27;,
+    i18nKey: &#x27;blockquote&#x27;,
+    icon: &#x27;quote&#x27;,
+    type: &#x27;node&#x27;
   }
 }</code>
                         </td>
@@ -1321,13 +1333,47 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>(type: NodeType, itemType: NodeType) &#x3D;&gt; {
   return (state: EditorState, dispatch: (tr: Transaction) &#x3D;&gt; void) &#x3D;&gt; {
-    const isActive &#x3D; isListItemActive(state, type);
+    const isActive &#x3D; isNodeActive(state, type);
 
     if (isActive) {
       return liftListItem(itemType)(state, dispatch);
     }
 
     return wrapInList(type)(state, dispatch);
+  };
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/lib/prosemirror/commands/toggleWrap.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleWrap"></a>
+                        <span class="name">
+                            <b>
+                            toggleWrap</b>
+                            <a href="#toggleWrap"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(type: NodeType) &#x3D;&gt; {
+  return (state: EditorState, dispatch: (tr: Transaction) &#x3D;&gt; void) &#x3D;&gt; {
+    const isActive &#x3D; isNodeActive(state, type);
+
+    if (isActive) {
+      return lift(state, dispatch);
+    }
+
+    return wrapIn(type)(state, dispatch);
   };
 }</code>
                         </td>
