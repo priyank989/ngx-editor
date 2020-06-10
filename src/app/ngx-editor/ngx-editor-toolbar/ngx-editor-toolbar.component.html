@@ -1,5 +1,10 @@
 <div class="ngx-toolbar" *ngIf="showToolbar">
+  <input type="color" style="width: 0; height: 0; position: absolute; opacity: 0;" (change)="triggerCommandColor($event)" #colorElement>
   <div class="ngx-toolbar-set">
+    <button type="button" class="ngx-editor-button" *ngIf="canEnableToolbarOptions('foreColor')" (click)="triggerCommand('foreColor')"
+            title="Bold" [disabled]="!enableToolbar">
+      <i class="fa fa-tint" aria-hidden="true"></i>
+    </button>
     <button type="button" class="ngx-editor-button" *ngIf="canEnableToolbarOptions('bold')" (click)="triggerCommand('bold')"
       title="Bold" [disabled]="!enableToolbar">
       <i class="fa fa-bold" aria-hidden="true"></i>

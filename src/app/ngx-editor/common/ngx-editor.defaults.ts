@@ -8,7 +8,7 @@ export const ngxEditorConfig = {
     translate: 'yes',
     placeholder: 'Enter text here...',
     toolbar: [
-        ['bold', 'italic', 'underline', 'strikeThrough', 'superscript', 'subscript'],
+        ['bold', 'italic', 'underline', 'strikeThrough', 'superscript', 'subscript', 'foreColor'],
         ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent', 'outdent'],
         ['cut', 'copy', 'delete', 'removeFormat', 'undo', 'redo'],
         ['paragraph', 'blockquote', 'removeBlockquote', 'horizontalLine', 'orderedList', 'unorderedList'],

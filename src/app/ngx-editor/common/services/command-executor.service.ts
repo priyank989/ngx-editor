@@ -30,6 +30,12 @@ export class CommandExecutorService {
       return;
     }
 
+    if (command.includes('foreColor')) {
+      const color = command.split(':')[1];
+      document.execCommand('foreColor', false, color);
+      return;
+    }
+
     document.execCommand(command, false, null);
   }
 
