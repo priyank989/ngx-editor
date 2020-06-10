@@ -1,6 +1,7 @@
 {
   "name": "ngx-editor",
   "version": "3.2.1",
+  "main": "build/ngx-editor.js",
   "description": "WYSIWYG Editor for Angular Applications",
   "license": "MIT",
   "scripts": {
