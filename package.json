@@ -5,6 +5,7 @@
   "module": "build/ngx-editor.es5.js",
   "es2015": "build/ngx-editor.js",
   "typings": "build/ngx-editor.d.ts",
+  "metadata": "build/ngx-editor.metadata.json",
   "description": "WYSIWYG Editor for Angular Applications",
   "license": "MIT",
   "scripts": {
