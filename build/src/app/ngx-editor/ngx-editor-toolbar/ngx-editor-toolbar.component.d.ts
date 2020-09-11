@@ -4,9 +4,11 @@ export declare class NgxEditorToolbarComponent {
     enableToolbar: boolean;
     showToolbar: boolean;
     execute: EventEmitter<string>;
+    buttonClicked: EventEmitter<any>;
     colorElement: ElementRef;
     constructor();
     canEnableToolbarOptions(value: any): boolean;
     triggerCommand(command: string): void;
     triggerCommandColor($event: Event): void;
+    clickButton(): void;
 }

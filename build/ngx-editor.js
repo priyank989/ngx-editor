@@ -542,6 +542,7 @@ class NgxEditorToolbarComponent {
         this.enableToolbar = false;
         this.showToolbar = true;
         this.execute = new EventEmitter();
+        this.buttonClicked = new EventEmitter();
     }
     /**
      * @param {?} value
@@ -567,6 +568,12 @@ class NgxEditorToolbarComponent {
      */
     triggerCommandColor($event) {
         this.execute.emit('foreColor:' + (($event.target)).value);
+    }
+    /**
+     * @return {?}
+     */
+    clickButton() {
+        this.buttonClicked.emit('test');
     }
 }
 NgxEditorToolbarComponent.decorators = [
@@ -692,7 +699,7 @@ NgxEditorToolbarComponent.decorators = [
           title="Unlink" [disabled]="!enableToolbar">
           <i class="fa fa-chain-broken" aria-hidden="true"></i>
         </button>
-        <button type="button" class="ngx-editor-button" *ngIf="canEnableToolbarOptions('image')" (click)="triggerCommand('image')"
+        <button type="button" class="ngx-editor-button" *ngIf="canEnableToolbarOptions('image')" (click)="clickButton()"
           title="Insert Image" [disabled]="!enableToolbar">
           <i class="fa fa-picture-o" aria-hidden="true"></i>
         </button>
@@ -750,6 +757,7 @@ NgxEditorToolbarComponent.propDecorators = {
     'enableToolbar': [{ type: Input },],
     'showToolbar': [{ type: Input },],
     'execute': [{ type: Output },],
+    'buttonClicked': [{ type: Output },],
     'colorElement': [{ type: ViewChild, args: ['colorElement',] },],
 };
 

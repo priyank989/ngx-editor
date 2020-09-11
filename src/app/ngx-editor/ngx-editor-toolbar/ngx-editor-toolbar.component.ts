@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import {Component, Input, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
 import * as Utils from '../common/utils/ngx-editor.utils';
 
 @Component({
@@ -13,11 +13,13 @@ export class NgxEditorToolbarComponent {
   @Input() enableToolbar = false;
   @Input() showToolbar = true;
   @Output() execute: EventEmitter<string> = new EventEmitter<string>();
+  @Output() buttonClicked: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild('colorElement')
   colorElement: ElementRef;
 
-  constructor() { }
+  constructor() {
+  }
 
   /*
    * enable or disable toolbar based on configuration
@@ -36,5 +38,9 @@ export class NgxEditorToolbarComponent {
 
   triggerCommandColor($event: Event) {
     this.execute.emit('foreColor:' + ($event.target as any).value);
+  }
+
+  clickButton() {
+    this.buttonClicked.emit('test');
   }
 }

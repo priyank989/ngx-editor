@@ -117,7 +117,7 @@
       title="Unlink" [disabled]="!enableToolbar">
       <i class="fa fa-chain-broken" aria-hidden="true"></i>
     </button>
-    <button type="button" class="ngx-editor-button" *ngIf="canEnableToolbarOptions('image')" (click)="triggerCommand('image')"
+    <button type="button" class="ngx-editor-button" *ngIf="canEnableToolbarOptions('image')" (click)="clickButton()"
       title="Insert Image" [disabled]="!enableToolbar">
       <i class="fa fa-picture-o" aria-hidden="true"></i>
     </button>
