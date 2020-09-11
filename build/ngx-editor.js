@@ -574,7 +574,7 @@ NgxEditorToolbarComponent.decorators = [
                 selector: 'app-ngx-editor-toolbar',
                 template: `
     <div class="ngx-toolbar" *ngIf="showToolbar">
-      <input type="color" style="width: 0; height: 0; position: absolute; opacity: 0;" (change)="triggerCommandColor($event)" #colorElement>
+      <input type="color" style="width: 0; height: 0; position: absolute; opacity: 0;" (input)="triggerCommandColor($event)" #colorElement>
       <div class="ngx-toolbar-set">
         <button type="button" class="ngx-editor-button" *ngIf="canEnableToolbarOptions('foreColor')" (click)="triggerCommand('foreColor')"
                 title="Bold" [disabled]="!enableToolbar">
