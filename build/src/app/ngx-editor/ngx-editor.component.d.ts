@@ -1,4 +1,4 @@
-import { OnInit, ElementRef, Renderer2 } from '@angular/core';
+import { OnInit, ElementRef, EventEmitter, Renderer2 } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { CommandExecutorService } from './common/services/command-executor.service';
 import { MessageService } from './common/services/message.service';
@@ -30,6 +30,7 @@ export declare class NgxEditorComponent implements OnInit, ControlValueAccessor 
         toolbar: string[][];
     };
     showToolbar: boolean;
+    buttonClickedParent: EventEmitter<any>;
     textArea: any;
     enableToolbar: boolean;
     Utils: typeof Utils;
@@ -49,4 +50,5 @@ export declare class NgxEditorComponent implements OnInit, ControlValueAccessor 
     refreshView(value: any): void;
     getCollectiveParams(): any;
     ngOnInit(): void;
+    clickButtonParent(): void;
 }

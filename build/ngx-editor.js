@@ -213,6 +213,7 @@ class NgxEditorComponent {
         this.resizer = 'stack';
         this.config = ngxEditorConfig;
         this.showToolbar = true;
+        this.buttonClickedParent = new EventEmitter();
         this.enableToolbar = false;
         this.Utils = Utils;
         this.lastViewModel = '';
@@ -332,6 +333,12 @@ class NgxEditorComponent {
         this.height = this.height || this.textArea.nativeElement.offsetHeight;
         this.executeCommand('enableObjectResizing');
     }
+    /**
+     * @return {?}
+     */
+    clickButtonParent() {
+        this.buttonClickedParent.emit('test');
+    }
 }
 NgxEditorComponent.decorators = [
     { type: Component, args: [{
@@ -339,12 +346,16 @@ NgxEditorComponent.decorators = [
                 template: `
     <div class="ngx-editor" id="ngxEditor" [style.width]="config['width']" [style.minWidth]="config['minWidth']">
 
-      <app-ngx-editor-toolbar [config]="config" [enableToolbar]="enableToolbar" [showToolbar]="showToolbar" (execute)="executeCommand($event)"></app-ngx-editor-toolbar>
+      <app-ngx-editor-toolbar [config]="config" [enableToolbar]="enableToolbar" [showToolbar]="showToolbar"
+                              (buttonClicked)="clickButtonParent()"
+                              (execute)="executeCommand($event)"></app-ngx-editor-toolbar>
 
       <!-- text area -->
-      <div class="ngx-editor-textarea" [attr.contenteditable]="config['editable']" [attr.placeholder]="config['placeholder']" (input)="onContentChange($event.target.innerHTML)"
-        [attr.translate]="config['translate']" [attr.spellcheck]="config['spellcheck']" [style.height]="config['height']" [style.minHeight]="config['minHeight']"
-        [style.resize]="Utils?.canResize(resizer)" (focus)="onFocus()" (blur)="onBlur()" #ngxTextArea></div>
+      <div class="ngx-editor-textarea" [attr.contenteditable]="config['editable']"
+           [attr.placeholder]="config['placeholder']" (input)="onContentChange($event.target.innerHTML)"
+           [attr.translate]="config['translate']" [attr.spellcheck]="config['spellcheck']" [style.height]="config['height']"
+           [style.minHeight]="config['minHeight']"
+           [style.resize]="Utils?.canResize(resizer)" (focus)="onFocus()" (blur)="onBlur()" #ngxTextArea></div>
 
       <app-ngx-editor-message></app-ngx-editor-message>
 
@@ -408,6 +419,7 @@ NgxEditorComponent.propDecorators = {
     'resizer': [{ type: Input },],
     'config': [{ type: Input },],
     'showToolbar': [{ type: Input },],
+    'buttonClickedParent': [{ type: Output },],
     'textArea': [{ type: ViewChild, args: ['ngxTextArea',] },],
     'onDocumentClick': [{ type: HostListener, args: ['document:click', ['$event'],] },],
 };

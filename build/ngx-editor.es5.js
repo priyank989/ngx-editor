@@ -211,6 +211,7 @@ var NgxEditorComponent = (function () {
         this.resizer = 'stack';
         this.config = ngxEditorConfig;
         this.showToolbar = true;
+        this.buttonClickedParent = new EventEmitter();
         this.enableToolbar = false;
         this.Utils = Utils;
         this.lastViewModel = '';
@@ -330,12 +331,18 @@ var NgxEditorComponent = (function () {
         this.height = this.height || this.textArea.nativeElement.offsetHeight;
         this.executeCommand('enableObjectResizing');
     };
+    /**
+     * @return {?}
+     */
+    NgxEditorComponent.prototype.clickButtonParent = function () {
+        this.buttonClickedParent.emit('test');
+    };
     return NgxEditorComponent;
 }());
 NgxEditorComponent.decorators = [
     { type: Component, args: [{
                 selector: 'app-ngx-editor',
-                template: "\n    <div class=\"ngx-editor\" id=\"ngxEditor\" [style.width]=\"config['width']\" [style.minWidth]=\"config['minWidth']\">\n\n      <app-ngx-editor-toolbar [config]=\"config\" [enableToolbar]=\"enableToolbar\" [showToolbar]=\"showToolbar\" (execute)=\"executeCommand($event)\"></app-ngx-editor-toolbar>\n\n      <!-- text area -->\n      <div class=\"ngx-editor-textarea\" [attr.contenteditable]=\"config['editable']\" [attr.placeholder]=\"config['placeholder']\" (input)=\"onContentChange($event.target.innerHTML)\"\n        [attr.translate]=\"config['translate']\" [attr.spellcheck]=\"config['spellcheck']\" [style.height]=\"config['height']\" [style.minHeight]=\"config['minHeight']\"\n        [style.resize]=\"Utils?.canResize(resizer)\" (focus)=\"onFocus()\" (blur)=\"onBlur()\" #ngxTextArea></div>\n\n      <app-ngx-editor-message></app-ngx-editor-message>\n\n      <app-ngx-grippie *ngIf=\"resizer === 'stack'\"></app-ngx-grippie>\n\n    </div>\n  ",
+                template: "\n    <div class=\"ngx-editor\" id=\"ngxEditor\" [style.width]=\"config['width']\" [style.minWidth]=\"config['minWidth']\">\n\n      <app-ngx-editor-toolbar [config]=\"config\" [enableToolbar]=\"enableToolbar\" [showToolbar]=\"showToolbar\"\n                              (buttonClicked)=\"clickButtonParent()\"\n                              (execute)=\"executeCommand($event)\"></app-ngx-editor-toolbar>\n\n      <!-- text area -->\n      <div class=\"ngx-editor-textarea\" [attr.contenteditable]=\"config['editable']\"\n           [attr.placeholder]=\"config['placeholder']\" (input)=\"onContentChange($event.target.innerHTML)\"\n           [attr.translate]=\"config['translate']\" [attr.spellcheck]=\"config['spellcheck']\" [style.height]=\"config['height']\"\n           [style.minHeight]=\"config['minHeight']\"\n           [style.resize]=\"Utils?.canResize(resizer)\" (focus)=\"onFocus()\" (blur)=\"onBlur()\" #ngxTextArea></div>\n\n      <app-ngx-editor-message></app-ngx-editor-message>\n\n      <app-ngx-grippie *ngIf=\"resizer === 'stack'\"></app-ngx-grippie>\n\n    </div>\n  ",
                 styles: ["\n    /*\n     * editor styles\n     */\n    .ngx-editor {\n      position: relative; }\n      .ngx-editor ::ng-deep [contenteditable=true]:empty:before {\n        content: attr(placeholder);\n        display: block;\n        color: #868e96;\n        opacity: 1; }\n      .ngx-editor .ngx-editor-textarea {\n        min-height: 5rem;\n        padding: 0.5rem 0.8rem 1rem 0.8rem;\n        border: 1px solid #ddd;\n        background-color: #fff;\n        overflow-x: hidden;\n        overflow-y: auto; }\n        .ngx-editor .ngx-editor-textarea:focus, .ngx-editor .ngx-editor-textarea.focus {\n          outline: 0; }\n        .ngx-editor .ngx-editor-textarea ::ng-deep blockquote {\n          margin-left: 1rem;\n          border-left: 0.2em solid #dfe2e5;\n          padding-left: 0.5rem; }\n  "],
                 providers: [
                     {
@@ -368,6 +375,7 @@ NgxEditorComponent.propDecorators = {
     'resizer': [{ type: Input },],
     'config': [{ type: Input },],
     'showToolbar': [{ type: Input },],
+    'buttonClickedParent': [{ type: Output },],
     'textArea': [{ type: ViewChild, args: ['ngxTextArea',] },],
     'onDocumentClick': [{ type: HostListener, args: ['document:click', ['$event'],] },],
 };

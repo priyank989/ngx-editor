@@ -3,12 +3,12 @@ import {
   ViewChild, HostListener, ElementRef, EventEmitter,
   Renderer2, forwardRef
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 
-import { CommandExecutorService } from './common/services/command-executor.service';
-import { MessageService } from './common/services/message.service';
+import {CommandExecutorService} from './common/services/command-executor.service';
+import {MessageService} from './common/services/message.service';
 
-import { ngxEditorConfig } from './common/ngx-editor.defaults';
+import {ngxEditorConfig} from './common/ngx-editor.defaults';
 import * as Utils from './common/utils/ngx-editor.utils';
 
 @Component({
@@ -38,6 +38,7 @@ export class NgxEditorComponent implements OnInit, ControlValueAccessor {
   @Input() resizer = 'stack';
   @Input() config = ngxEditorConfig;
   @Input() showToolbar = true;
+  @Output() buttonClickedParent: EventEmitter<any> = new EventEmitter<any>();
 
   @ViewChild('ngxTextArea') textArea: any;
 
@@ -52,7 +53,8 @@ export class NgxEditorComponent implements OnInit, ControlValueAccessor {
     private _elementRef: ElementRef,
     private _messageService: MessageService,
     private _commandExecutor: CommandExecutorService,
-    private _renderer: Renderer2) { }
+    private _renderer: Renderer2) {
+  }
 
   /*
    * events
@@ -169,4 +171,8 @@ export class NgxEditorComponent implements OnInit, ControlValueAccessor {
     this.executeCommand('enableObjectResizing');
   }
 
+  clickButtonParent() {
+    this.buttonClickedParent.emit('test');
+
+  }
 }
