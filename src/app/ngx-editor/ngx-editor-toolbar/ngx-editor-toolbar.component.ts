@@ -41,6 +41,6 @@ export class NgxEditorToolbarComponent {
   }
 
   clickButton() {
-    this.buttonClicked.emit('test');
+    this.buttonClicked.emit();
   }
 }

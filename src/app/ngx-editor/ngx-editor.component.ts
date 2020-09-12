@@ -172,7 +172,7 @@ export class NgxEditorComponent implements OnInit, ControlValueAccessor {
   }
 
   clickButtonParent() {
-    this.buttonClickedParent.emit('test');
+    this.buttonClickedParent.emit();
 
   }
 }

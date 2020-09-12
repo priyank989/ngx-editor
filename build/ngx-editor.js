@@ -337,7 +337,7 @@ class NgxEditorComponent {
      * @return {?}
      */
     clickButtonParent() {
-        this.buttonClickedParent.emit('test');
+        this.buttonClickedParent.emit();
     }
 }
 NgxEditorComponent.decorators = [
@@ -585,7 +585,7 @@ class NgxEditorToolbarComponent {
      * @return {?}
      */
     clickButton() {
-        this.buttonClicked.emit('test');
+        this.buttonClicked.emit();
     }
 }
 NgxEditorToolbarComponent.decorators = [

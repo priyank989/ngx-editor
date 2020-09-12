@@ -335,7 +335,7 @@ var NgxEditorComponent = (function () {
      * @return {?}
      */
     NgxEditorComponent.prototype.clickButtonParent = function () {
-        this.buttonClickedParent.emit('test');
+        this.buttonClickedParent.emit();
     };
     return NgxEditorComponent;
 }());
@@ -503,7 +503,7 @@ var NgxEditorToolbarComponent = (function () {
      * @return {?}
      */
     NgxEditorToolbarComponent.prototype.clickButton = function () {
-        this.buttonClicked.emit('test');
+        this.buttonClicked.emit();
     };
     return NgxEditorToolbarComponent;
 }());
